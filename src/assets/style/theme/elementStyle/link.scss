@@ -1,0 +1,102 @@
+// 链接
+a.el-link{
+   &.is-underline:hover:after {
+      display: none;
+    }
+}
+// 正向按钮
+a.el-link--primary { 
+  line-height: 12px;
+  padding: 4px;
+  display: inline-block;
+  @include color(assist);
+  &.el-link--assist {
+    @include color(assist);
+
+    // &.is-underline:hover:after {
+    //   // @include borderBottomColor(assist);
+    //   border-color: transparent;
+    // }
+  }
+  &:focus {
+    @include color(assist);
+    background: transparent;
+  }
+
+  &:hover {
+    @include color(assist);
+    @include rgbaOpt(main, "background-color", 0.15);
+    padding: 4px;
+    border-radius: 2px;
+  }
+
+  &:active {
+    // @include color(bg);
+    // @include backgroundColor(assist);
+    background: transparent
+  }
+  .el-dropdown-link{
+    @include color(main)
+  }
+}
+
+// 负向按钮
+a.el-link--danger {
+  // font-size: 12px;
+  padding: 4px;
+  display: inline;
+  @include color(A18);
+  &.el-link--assist {
+    @include color(A18);
+
+    // &.is-underline:hover:after {
+    //   @include borderBottomColor(A18);
+    // }
+  }
+  &:focus {
+    @include color(A18);
+    background: transparent;
+  }
+
+  &:hover {
+    @include color(A18);
+    @include rgbaOpt(main, "background-color", 0.15);
+    padding: 4px;
+    border-radius: 2px;
+  }
+
+  &:active {
+    // @include color(bg);
+    // @include backgroundColor(A18);
+    @include color(A18);
+    // @include backgroundColor(assist);
+    background: transparent
+  }
+}
+
+// 正向按钮禁用状态
+a.jgy-link-primary.el-link--primary.is-disabled {
+  padding: 4px;
+  @include rgbaOpt(main, "color", 0.5);
+  &:active {
+    background-color: transparent ;
+  }
+  &:hover {
+    background-color: transparent;
+  }
+}
+// 负向按钮禁用状态
+a.jgy-link-danger.el-link--danger.is-disabled {
+  padding: 4px;
+  @include rgbaOpt(A18, "color", 0.5);
+  &:active {
+    background-color: transparent;
+  }
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.el-link.el-link--info.is-disabled{
+  padding: 4px;
+}

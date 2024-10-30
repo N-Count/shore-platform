@@ -1,0 +1,719 @@
+// 文档 https://n6ikj6ymiv.feishu.cn/wiki/wikcnsdEW1nVy1LPJk3Q2ZEgnxb
+/* 定义数组 */
+@import './color.scss';
+
+
+$color: (darkTheme: ( // 背景色 默认主背景；
+        A2: #181818,
+        btn-default-bg:#181818, // 默认按钮背景颜色
+        bg:#000000,
+        // 主背景悬停背景色、下拉选项hover
+        A2h:#463C31,
+        // 表格hover
+        td-hover: #3B3A39,
+        // 散点图选中表格专用hover
+        dotRow: #504228,
+        // tooltips 背景
+        bg-hover:#000000,
+        // 内容背景
+        content-bg: #241d1d,
+        // 下拉框背景色，深色按钮文字颜色
+        A7:#FFFFFF,
+        bg3:#000000,
+
+        // 主色
+        main:#D60010,
+        opa: 0.15,
+        // 主色hover状态
+        main-hover:#D60010,
+        // 主色文字颜色
+        main-text: #D60010,
+        // header主色
+        H1: #181818,
+        //theme-container tab 颜色
+        tbb1: #181818,
+        tbc1: #C0C0C0,
+        // tab active 颜色
+        tbb1-act: #000000,
+        tbc1-act:#D60010,
+        // 主色border顏色
+        A1b1: #000000,
+        // 侧边栏主色
+        Ce1: #E5E6EB,
+        // 侧边栏active
+        CeA1: #fff,
+        // 内容区域容器背景色
+        C1: #000000,
+        // 辅色
+        assist:#D60010,
+        dateAssist: rgba(160, 141, 121, .3),
+        // 辅色hover状态
+        assist-hover:#536199,
+        // 標題、菜單欄、主文字颜色
+        text: #FFFFFF,
+        // 弱化
+        A8:#838383,
+        weak:#838383,
+        // 按钮
+        BA1: #fff,
+        BtnBg: #D60010,
+        // 删除 取消等操作icon
+        del-icon:#E43434,
+        // 操作icon 
+        opa-icon: #979797,
+        // 表格
+        // 表头背景色
+        th-bg: #38383B,
+        td-bg: #181818,
+        td-border: #000,
+        // 表头文字颜色
+        A15:#FFFFFF,
+        th-text:#C0C0C0,
+
+        // 斑马纹背景色
+        A11: #242424,
+        striped: #242424,
+        // 分页相关
+        P1: #838383,
+
+        // 弹窗
+        dialog-title:#181818,
+        // 弹窗border
+        db: #333333,
+        A13: #333333,
+        // 分割线
+        split: #333333,
+
+        // 滚动条槽背景色；
+        A16:#4E4E50,
+        // 下拉框/输入框默认边框颜色；
+        input-border:#4E4E50,
+        // input  select 输入框字体颜色
+        ipt-text: #fff,
+        // 图标边框
+        icon-border: #838383,
+        // 错误
+        A18:#DC4E37,
+        errorbg: rgba(220, 78, 55, .1),
+
+        // 禁用
+        disbg: #333333,
+        //
+
+        // 跌幅
+        A19:#50BB55,
+        green:#50BB55,
+
+        // 涨幅
+        A20:#ff5033,
+        red:#ff5033,
+
+        // 内嵌表格
+        ith-bg:#ddd7cc,
+
+        // loading
+        loadBg: rgba(0, 0, 0, .9),
+        loadmaskBg: rgba(56, 56, 59, .9),
+        // 翻页shadow
+        shadow: 0px -4px 6px 0px rgba(0, 0, 0, 0.6),
+        shadowTableleft: 6px 0px 8px 0px rgba(0, 0, 0, 0.35),
+        shadowTabRigth: -6px 0px 8px 0px rgba(0, 0, 0, 0.35),
+        shadowTabNone: 0px 0px 0px 0px #000,
+        showdowMenu: 0px 4px 10px 0px rgba(0, 0, 0, 0.35),
+        // loadUrl: url('~@/../public/image/loading/loading.gif'),
+        loadContent: '\52AA\529B\52A0\8F7D\4E2D...',
+        loadText: url('~@/../public/image/loading/loading_text.png'),
+        loadColor: #C1B493,
+        // 最小宽度
+        mainMinWidth: 1100px,
+        // 添加padding
+        mainPadding: 0 16px,
+        mainPaddingSet: 0,
+        // 顶部多tab切换shadow阴影
+        headerTabsShadow:0px 3px 6px 0px rgba(0, 0, 0, 0.5),
+    ),
+    lightTheme: ( // 背景色 默认主背景；
+        A2: #FFFFFF,
+        bg:#F0F0F0,
+        // 主背景悬停背景色、下拉选项hover
+        A2h: #FAF2F0,
+        // 表格hover
+        td-hover: #F2F3F5,
+        // 散点图选中表格专用hover
+        dotRow: #FBDFD9,
+        // tooltips 背景
+        bg-hover:#FFFFFF,
+        // 内容背景
+        content-bg: #241d1d,
+        // 下拉框背景色，深色按钮文字颜色
+        A7:#38383B,
+        bg3:#FFFFFF,
+
+        // 主色
+        main:#D60010,
+        opa: 0.15,
+        // 主色hover状态
+        main-hover:#D60010,
+        // 主色文字颜色
+        main-text:#D60010,
+        // header主色
+        H1: #FFFFFF,
+        //theme-container tab 颜色
+        tbb1: #FFFFFF,
+        tbc1: #38383B,
+        // tab active 颜色
+        tbb1-act: #FFFFFF,
+        tbc1-act:#D60010,
+        // 主色border顏色
+        A1b1: #F0F0F0,
+        // 侧边栏主色
+        Ce1: #E5E6EB,
+        // 侧边栏active
+        CeA1: #fff,
+        // 内容区域容器背景色
+        C1: #FFFFFF,
+        // 辅色
+        assist:#D60010,
+        dateAssist: rgba(160, 141, 121, .3),
+        // 辅色hover状态
+        assist-hover:#536199,
+        // 標題、菜單欄、主文字颜色
+        text: #38383B,
+        // 弱化
+        A8:#838383,
+        weak:#838383,
+        // 按钮
+        BA1: #38383B,
+        BtnBg: #D60010,
+        // 删除 取消等操作icon
+        del-icon:#E43434,
+        // 操作icon 
+        opa-icon: #979797,
+        // 表格
+        // 表头背景色
+        th-bg: #F0F0F0,
+        td-bg: #FFFFFF,
+        td-border: #fff,
+        // 表头文字颜色
+        A15:#38383B,
+        th-text:#38383b,
+
+        // 斑马纹背景色
+        A11: #F9F9F9,
+        striped: #F9F9F9,
+        // 分页相关
+        P1: #838383,
+
+        // 弹窗
+        dialog-title:#FFFFFF,
+        // 弹窗border
+        db: #E6E6E6,
+        A13: #E6E6E6,
+        // 分割线
+        split: #E6E6E6,
+
+        // 滚动条,switch槽背景色；
+        A16:#C0C0C0,
+        // 下拉框/输入框默认边框颜色；
+        input-border:#C0C0C0,
+        // input  select 输入框字体颜色
+        ipt-text: #38383B,
+        // 图标边框
+        icon-border: #C0C0C0,
+        // 错误
+        A18:#DC4E37,
+        errorbg: rgba(220, 78, 55, .1),
+
+        // 禁用
+        disbg: #E6E6E6,
+        //
+
+        // 跌幅
+        A19:#397b41,
+        green:#397b41,
+
+        // 涨幅
+        A20:#b62f2c,
+        red:#b62f2c,
+
+        // 内嵌表格
+        ith-bg:#ddd7cc,
+
+        // loading
+        loadBg: rgba(160, 141, 121, .6),
+        loadmaskBg: rgba(255, 255, 255, 0.9),
+        // 翻页shadow
+        shadow: 0px -4px 4px 0px #F0F0F0,
+        shadowTableleft: 3px 0px 5px 0px rgba(0, 0, 0, 0.15),
+        shadowTabRigth: -3px 0px 5px 0px rgba(0, 0, 0, 0.15),
+        shadowTabNone: 0px 0px 0px 0px #000,
+        showdowMenu: 0px 4px 10px 0px rgba(0, 0, 0, 0.15),
+        // loadUrl: url('~@/../public/image/loading/loading.gif'),
+        loadContent: '\52AA\529B\52A0\8F7D\4E2D...',
+        loadText: url('~@/../public/image/loading/loading_text.png'),
+        loadColor: #fff,
+        // 最小宽度
+        mainMinWidth: 1100px,
+        // 添加padding
+        mainPadding: 0 16px,
+        mainPaddingSet: 0,
+        // 顶部多tab切换shadow阴影
+        headerTabsShadow:0px 3px 6px 0px rgba(0, 0, 0, 0.1),
+    ),
+);
+
+@mixin color($key, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$key {
+                    @if $important==1 {
+                        color: $val !important;
+                    }
+
+                    @else {
+                        color: $val
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin minWidth($key, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$key {
+                    @if $important==1 {
+                        min-width: $val !important;
+                    }
+
+                    @else {
+                        min-width: $val
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin paddingSet($key, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$key {
+                    @if $important==1 {
+                        padding: $val !important;
+                    }
+
+                    @else {
+                        padding: $val
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin backgroundColor($key, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$key {
+                    @if $important==1 {
+                        background-color: $val !important;
+                    }
+
+                    @else {
+                        background-color: $val
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin backgroundImage($key, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$key {
+                    @if $important==1 {
+                        background-image: $val !important;
+                    }
+
+                    @else {
+                        background-image: $val
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin beforeContent($key, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$key {
+                    @if $important==1 {
+                        content: $val !important;
+                    }
+
+                    @else {
+                        content: $val
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin borderColor($key, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$key {
+                    @if $important==1 {
+                        border-color: $val !important;
+                    }
+
+                    @else {
+                        border-color: $val
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin borderTopColor($key, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$key {
+                    @if $important==1 {
+                        border-top-color: $val !important;
+                    }
+
+                    @else {
+                        border-top-color: $val
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin backgroundLeftColor($key, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$key {
+                    @if $important==1 {
+                        border-top-color: $val !important;
+                    }
+
+                    @else {
+                        border-left-color: $val
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin borderBottomColor($key, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$key {
+                    @if $important==1 {
+                        border-bottom-color: $val !important;
+                    }
+
+                    @else {
+                        border-bottom-color: $val
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin borderLeftColor($key, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$key {
+                    @if $important==1 {
+                        border-left-color: $val !important;
+                    }
+
+                    @else {
+                        border-left-color: $val
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin borderRightColor($key, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$key {
+                    @if $important==1 {
+                        border-right-color: $val !important;
+                    }
+
+                    @else {
+                        border-right-color: $val
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@mixin opacity($key, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$key {
+                    @if $important==1 {
+                        opacity: $val !important;
+                    }
+
+                    @else {
+                        opacity: $val
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin boxShadow($key, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$key {
+                    @if $important==1 {
+                        box-shadow: $val !important;
+                    }
+
+                    @else {
+                        box-shadow: $val
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin string-concat ($val, $opacity) {
+    &:after {
+        content: "My favorite language is #{$language}";
+
+        // second way without using interpolation
+        //content: "My favorite language is " + $language;
+    }
+}
+
+
+@mixin backgroundOpt($key, $opacity, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$key {
+                    @if $important==1 {
+                        background-color: #{$val}#{$opacity},
+                         !important;
+                    }
+
+                    @else {
+                        background-color: #{$val}#{$opacity}
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin borderColorOpt($key, $opacity, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$key {
+                    @if $important==1 {
+                        border-color: #{$val}#{$opacity} !important;
+                    }
+
+                    @else {
+                        border-color: #{$val}#{$opacity}
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 色值通过rgba方式添加透明度
+@mixin rgbaOpt($key, $styleName, $opacity, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$key {
+                    @if $important==1 {
+                        #{$styleName}: rgba($val, $opacity) !important;
+                    }
+
+                    @else {
+                        #{$styleName}: rgba($val, $opacity)
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*
+    box-shadow 设置阴影
+        $h-shadow  水平阴影的位置。允许负值。
+        $v-shadow  垂直阴影的位置。允许负值。
+        $blur      模糊距离。
+        $spread    阴影的尺寸。
+        $colorKey  阴影的颜色key
+        $opacity   颜色透明度
+        $inset     将外部阴影改为内部阴影 默认是外部  如果传入1 则改成内部阴影
+*/
+@mixin boxShadowOpt($h-shadow:0, $v-shadow:0, $blur:0, $spread:0, $colorKey, $opacity:1, $inset:0, $important: 0) {
+
+    @each $theme-name,
+    $theme-val in $color {
+        .theme-#{$theme-name} & {
+
+            @each $name,
+            $val in $theme-val {
+                @if $name==$colorKey {
+                    @if $inset==1 {
+                        @if($important==1) {
+                            box-shadow: #{$h-shadow} #{$v-shadow} #{$blur} #{$spread} rgba($val, $opacity) inset !important;
+                        }
+
+                        @else {
+                            box-shadow: #{$h-shadow} #{$v-shadow} #{$blur} #{$spread} rgba($val, $opacity) inset;
+                        }
+
+                    }
+
+                    @else {
+                        @if($important==1) {
+                            box-shadow: #{$h-shadow} #{$v-shadow} #{$blur} #{$spread} rgba($val, $opacity) !important;
+                        }
+
+                        @else {
+                            box-shadow: #{$h-shadow} #{$v-shadow} #{$blur} #{$spread} rgba($val, $opacity);
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+// linear-gradient 渐变色设置 linear-gradient(90deg, rgba(0, 0, 0, 0), #181818)
+@mixin backgroundLinearGradient($deg, $colorKey, $opacity, $important: 0) {
+
+  @each $theme-name,
+  $theme-val in $color {
+      .theme-#{$theme-name} & {
+
+          @each $name,
+          $val in $theme-val {
+              @if $name==$colorKey {
+                  @if $important==1 {
+                    background: linear-gradient(#{$deg}, rgba($val, $opacity) 0%, $val 100%)!important;
+                  }
+
+                  @else {
+                    background: linear-gradient(#{$deg}, rgba($val, $opacity) 0%, $val 100%)
+                  }
+              }
+          }
+      }
+  }
+}

@@ -1,0 +1,48 @@
+// Message 消息提示
+// 成功
+div.el-message--success {
+  border: 1px solid #44bb49;
+  @include backgroundColor(successBg);
+  .el-icon-success {
+    color: #44bb49;
+  }
+  .el-message__content {
+    color: #44bb49;
+  }
+}
+// 警告
+div.el-message--warning {
+  border: 1px solid #fc8200;
+  @include backgroundColor(warningBg);
+  .el-icon-warning {
+    color: #fc8200;
+  }
+  .el-message__content {
+    color: #fc8200;
+  }
+}
+
+// 错误
+div.el-message--error {
+  border: 1px solid #dc4e37;
+  @include backgroundColor(errorBg);
+  .el-icon-error {
+    color: #dc4e37;
+  }
+  .el-message__content {
+    color: #dc4e37;
+    line-height: 18px;
+  }
+}
+// 消息
+div.el-message--info {
+  border: 1px solid #6591be;
+  @include backgroundColor(infoBg);
+
+  .el-icon-info {
+    color: #6591be;
+  }
+  .el-message__content {
+    color: #6591be;
+  }
+}

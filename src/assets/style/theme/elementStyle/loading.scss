@@ -1,0 +1,41 @@
+// loading
+div.el-loading-mask {
+
+  .el-loading-spinner {
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    background-color: rgba(214,0,16, 0.6);
+    background-image: url('~@/../public/image/loading/loading.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+
+    &::before {
+      // content: '努力加载中...';
+      // @include beforeContent(loadContent); //'\52AA\529B\52A0\8F7D\4E2D...';
+      content: '';
+      @include backgroundImage(loadText);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      width: 65px;
+      height: 24px;
+      position: absolute;
+      bottom: 5px;
+      left: 20px;
+      right: 0;
+      line-height: 20px;
+      color: #ffffff;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    svg {
+      display: none;
+    }
+  }
+}

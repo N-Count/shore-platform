@@ -1,0 +1,86 @@
+.popper__arrow {
+    @include borderBottomColor(bg-hover);
+
+    &:after {
+        @include borderBottomColor(bg-hover);
+    }
+}
+
+
+.body_footer_line {
+    height: 12px;
+    margin-left: -16px;
+    @include backgroundColor(content-bg);
+}
+
+span.operate-css {
+    @include color(main-text);
+}
+
+
+
+
+div.d2-contextmenu {
+    @include backgroundColor(A2);
+    @include borderColor(input-border);
+
+    .d2-contentmenu-item {
+        font-size: 12px;
+        @include color(ipt-text);
+
+        &.selected,
+        &:hover {
+            @include color(assist);
+            @include backgroundColor(A2h);
+        }
+    }
+
+    .hover {
+        @include color(assist);
+        @include backgroundColor(A2h);
+    }
+
+    .el-dropdown__empty {
+        @include color(error)
+    }
+
+    .popper__arrow {
+        @include borderBottomColor(input-border);
+
+        &:after {
+            @include borderBottomColor(A2);
+            /*filter:alpha(opacity=50);
+        -moz-opacity:0.5;
+        -khtml-opacity: 0.5;
+        opacity: 0.5;*/
+        }
+    }
+}
+
+
+
+
+// .theme-web{
+//   .el-dropdown-menu{
+//     // @include backgroundColor(A2);
+//     background: red;
+//     @include backgroundColor(A2);
+//     // .el-select-dropdown__item{
+//     //   font-size: 12px;
+//     //   line-height: 32px;
+//     //   height: 32px;
+//     //   @include color(ipt-text);
+//     //   &.selected, &:hover{
+//     //     @include color(assist);
+//     //     @include backgroundColor(A2h);
+//     //   }
+//     // }
+//     // .hover{
+//     //   @include color(assist);
+//     //   @include backgroundColor(A2h);
+//     // }
+//     // .el-select-dropdown__empty{
+//     //   @include color(error)
+//     // }
+//   }
+// }

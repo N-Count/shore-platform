@@ -1,0 +1,922 @@
+// 整体框架结构
+.d2-layout-header-aside-group {
+  height: 100%;
+  width: 100%;
+  min-width: 900px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+
+  // 背景上面的半透明遮罩
+  .d2-layout-header-aside-mask {
+    @extend %full;
+  }
+
+  // 内容层F
+  .d2-layout-header-aside-content {
+    @extend %full;
+
+    .d2-theme-header {
+      height: 40px;
+      @include backgroundColor(H1);
+
+      // background: #191E37;
+      .d2-theme-header-menu {
+        overflow: hidden;
+
+        &.is-scrollable {
+          position: relative;
+          padding: 0 20px;
+
+          .d2-theme-header-menu__prev,
+          .d2-theme-header-menu__next {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+          }
+        }
+
+        .d2-theme-header-menu__content {
+          overflow: hidden;
+
+          .d2-theme-header-menu__scroll {
+            white-space: nowrap;
+            position: relative;
+            -webkit-transition: -webkit-transform 0.3s;
+            transition: -webkit-transform 0.3s;
+            transition: transform 0.3s;
+            transition: transform 0.3s, -webkit-transform 0.3s;
+            transition: transform 0.3s, -webkit-transform 0.3s;
+            float: left;
+          }
+        }
+
+        .d2-theme-header-menu__prev,
+        .d2-theme-header-menu__next {
+          height: 60px;
+          position: absolute;
+          top: 0;
+          font-size: 20px;
+          cursor: pointer;
+          display: none;
+        }
+
+        .d2-theme-header-menu__prev {
+          left: 0;
+          border-top-left-radius: 2px;
+          border-bottom-left-radius: 2px;
+        }
+
+        .d2-theme-header-menu__next {
+          right: 0;
+          border-top-right-radius: 2px;
+          border-bottom-right-radius: 2px;
+        }
+      }
+    }
+
+    .d2-theme-container {
+      .d2-theme-container-aside {
+        transition: width 0.3s;
+        position: relative;
+        margin-top: 31px;
+
+        .d2-layout-header-aside-menu-side {
+          @extend %full;
+          overflow: hidden;
+          @include backgroundColor(tbb1);
+        }
+      }
+
+      .d2-theme-container-main {
+        padding: 0px;
+        position: relative;
+        overflow: hidden;
+
+        .d2-theme-container-main-layer {
+          position: absolute;
+          top: 0px;
+          bottom: 0px;
+          left: 0px;
+          right: 0px;
+        }
+
+        .d2-theme-container-main-body {
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+// 主题公用
+.d2-layout-header-aside-group {
+  &.grayMode {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+  }
+
+  // 主体
+  .d2-layout-header-aside-content {
+    // [布局] 顶栏
+    .d2-theme-header {
+      // logo区域
+      .logo-group {
+        transition: width 0.3s;
+        float: left;
+        text-align: center;
+        height: 70px;
+        border-bottom: 1px solid;
+        @include borderBottomColor(A1b1);
+        position: relative;
+        top: 0;
+        left: 0;
+        @include backgroundColor(tbb1);
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      // 折叠侧边栏切换按钮
+      .toggle-aside-btn {
+        float: left;
+        // height: 40px;
+        // width: 40px;
+        margin-right: 26px;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        @extend %unable-select;
+        @include color(BA1);
+        margin: 12px 0 13px;
+
+        i {
+          font-size: 18px;
+          &:hover {
+            @include color(main-text);
+          }
+        }
+      }
+
+      .toggle-aside-btn:nth-child(2) {
+        margin-left: 17px;
+        margin-right: 25px;
+      }
+
+      // [菜单] 顶栏
+      .el-menu {
+        float: left;
+        border-bottom: none;
+        background-color: transparent;
+
+        %header-menu-item {
+          @extend %unable-select;
+
+          i.fa {
+            font-size: 16px;
+            margin-right: 4px;
+          }
+        }
+
+        .el-menu-item {
+          @extend %header-menu-item;
+          border-bottom: none;
+        }
+
+        .el-submenu {
+          @extend %header-menu-item;
+
+          .el-submenu__title {
+            border-bottom: none;
+          }
+        }
+      }
+
+      // 顶栏右侧的按钮
+      .d2-header-right {
+        float: right;
+        height: 40px;
+        display: flex;
+        align-items: center;
+
+        .btn-text {
+          border: none;
+          height: auto;
+          @include color(BA1);
+          padding: 13px 14px;
+          border-radius: 4px;
+          margin: 0px !important;
+          font-size: 14px;
+          &.el-color-picker.el-color-picker--mini {
+            padding: 9px 6px;
+          }
+
+          &:hover {
+            // @include color(main);
+
+            i {
+              @include color(main);
+            }
+          }
+        }
+
+        .el-dropdown-selfdefine {
+          @include color(tbc1);
+
+          &:hover {
+            @include color(main);
+          }
+        }
+
+        .el-dropdown {
+          @extend %unable-select;
+        }
+      }
+    }
+
+    // [布局] 顶栏下面
+    .d2-theme-container {
+      // 侧边栏
+      .d2-theme-container-aside {
+        %d2-theme-container-aside-menu-icon {
+          width: 20px;
+          text-align: center;
+          font-size: 16px;
+          color: rgba(0, 0, 0, 0.4);
+        }
+
+        // [菜单] 正常状态
+        .el-menu {
+          @extend %unable-select;
+          background-color: transparent;
+          border-right: none;
+
+          .el-menu-item {
+            color: rgba(0, 0, 0, 0.8);
+
+            i {
+              @extend %d2-theme-container-aside-menu-icon;
+            }
+
+            &:hover {
+              @include color(tbc1-act);
+              border-radius: 2px;
+              @include rgbaOpt(tbc1-act, 'background-color', 0.08);
+
+              i {
+                @include color(tbc1-act);
+              }
+            }
+
+            &.is-active {
+              border-radius: 2px;
+              // @include rgbaOpt(tbc1-act,'fill',1);
+              @include color(tbb1);
+              @include backgroundColor(tbc1-act);
+
+              &:hover {
+                @include color(tbb1);
+                @include backgroundColor(tbc1-act);
+
+                i {
+                  @include color(tbb1);
+                }
+              }
+              i {
+                @include color(tbb1);
+              }
+              // >span{
+              //   @include color(tbb1);
+              //   color: #fff;
+              // }
+              // &>i,&:hover i{
+              //   @include color(tbb1);
+              // }
+            }
+          }
+        }
+
+        .el-submenu {
+          @extend %unable-select;
+
+          .el-submenu__title {
+            color: rgba(0, 0, 0, 0.8);
+
+            i {
+              @extend %d2-theme-container-aside-menu-icon;
+            }
+
+            .el-submenu__icon-arrow {
+              // margin-top: -10px;
+            }
+
+            &:hover {
+              border-radius: 2px;
+              // @include color(tbb1);
+              @include color(tbc1-act);
+              // @include backgroundColor(tbc1-act);
+              @include rgbaOpt(tbc1-act, 'background-color', 0.08);
+
+              i {
+                // @include color(tbb1);
+                @include color(tbc1-act);
+              }
+
+              .el-submenu__icon-arrow {
+                // @include color(tbb1);
+                @include color(tbc1-act);
+              }
+            }
+          }
+        }
+
+        // 菜单为空的时候显示的信息
+        .d2-layout-header-aside-menu-empty {
+          height: 160px;
+          margin: 10px;
+          margin-top: 0px;
+          border-radius: 4px;
+          @extend %unable-select;
+
+          i {
+            font-size: 30px;
+            margin-bottom: 10px;
+          }
+
+          span {
+            font-size: 14px;
+          }
+        }
+
+        // [菜单] 折叠状态
+        .el-menu--collapse {
+          background-color: transparent;
+          .is-active {
+            .el-submenu__title {
+              color: #fff;
+              border-radius: 2px;
+              background: #D60010;
+              i {
+                color: #fff;
+              }
+              &:hover {
+                i {
+                  color: #fff;
+                }
+              }
+
+              .fold-menu-title {
+                color: #fff;
+              }
+            }
+          }
+          .el-menu-item {
+            i {
+              margin-right: 0;
+            }
+          }
+
+          .fold-menu-item {
+            position: relative;
+            text-align: center;
+            height: 56px;
+            line-height: 33px;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+
+            .el-submenu__title {
+              text-align: center;
+              height: 100%;
+              width: 100%;
+              line-height: 33px;
+            }
+
+            .iconfont {
+              margin-right: 0;
+            }
+
+            .fold-menu-title {
+              width: 100%;
+              height: 20px;
+              line-height: 20px;
+              text-align: center;
+              position: absolute;
+              top: 30px;
+              left: 0;
+              font-size: 12px;
+              visibility: visible;
+              overflow: initial;
+              display: inline-block;
+            }
+          }
+        }
+      }
+
+      // 右下 主体
+      .d2-theme-container-main {
+        // 主体部分分为多页面控制器 和主体
+        .d2-theme-container-main-header {
+          @include backgroundColor(H1);
+          // padding-top: 4px;
+          height: 30px;
+          overflow: hidden;
+
+          // 多页面控制器
+          .d2-multiple-page-control-group {
+            padding-right: 20px;
+
+            .d2-multiple-page-control-content {
+              overflow: hidden;
+              position: relative;
+
+              .d2-multiple-page-control-content-inner {
+                .d2-multiple-page-control {
+                  .el-tabs__header.is-top {
+                    margin: 0px;
+                    border-bottom: none;
+
+                    .el-tabs__item {
+                      @include backgroundLeftColor(A1b1);
+                    }
+
+                    .is-active {
+                      @include color(tbc1-act);
+                      @include backgroundColor(bg);
+                    }
+                  }
+
+                  .el-tabs__nav {
+                    @include borderColor(A1b1);
+                    overflow: hidden;
+                  }
+                }
+              }
+            }
+
+            .d2-multiple-page-control-btn {
+              position: relative;
+              // bottom: -1px;
+              height: 30px;
+
+              .el-dropdown {
+                height: 100%;
+
+                .el-button-group {
+                  height: 100%;
+
+                  .el-button {
+                    height: 100%;
+                    @include backgroundColor(H1);
+                    @include borderColor(A1b1);
+                    @include color(tbc1);
+
+                    &:first-child {
+                      border-bottom-left-radius: 0px;
+                    }
+
+                    &:last-child {
+                      border-bottom-right-radius: 0px;
+                      padding-left: 5px;
+                      padding-right: 5px;
+                    }
+
+                    &:hover {
+                      @include color(tbc1);
+                    }
+                  }
+
+                  .el-dropdown__caret-button {
+                    &::before {
+                      height: 30px;
+                      top: 0;
+                      @include backgroundColor(A1b1);
+                    }
+                  }
+
+                  // .el-button:last-child {
+
+                  // }
+                  .el-button--small {
+                    padding: 6px 15px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // 主体
+        .d2-theme-container-main-body {
+          // 布局组件
+          .container-component {
+            @extend %full;
+            overflow: hidden;
+            @include backgroundColor(C1);
+
+            // 填充式布局组件
+            .d2-container-full {
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0px;
+              left: 0;
+              margin: auto;
+              display: flex;
+              flex-direction: column;
+              overflow: hidden;
+              @include backgroundColor(bg);
+
+              .d2-container-full__header {
+                padding: 5px 10px 0;
+              }
+
+              .d2-container-full__body {
+                flex-grow: 1;
+                // min-height: 100%;
+                // padding:17px 16px 0 16px;
+                overflow-x: hidden;
+                // position: relative;
+                overflow-y: auto;
+                // padding-bottom: 50px;
+                @include backgroundColor(bg);
+              }
+
+              .d2-container-full__body_footer {
+                @include borderColor(content-bg);
+                @include backgroundColor(A2);
+              }
+
+              .d2-container-full__footer {
+                padding: 0;
+              }
+            }
+
+            // 填充式布局组件 - 滚动优化
+            .d2-container-full-bs {
+              position: absolute;
+              top: 0px;
+              right: 20px;
+              bottom: 0px;
+              left: 0px;
+              display: flex;
+              flex-direction: column;
+              overflow: hidden;
+
+              .d2-container-full-bs__header {
+                padding: 20px;
+              }
+
+              .d2-container-full-bs__body {
+                flex-grow: 1;
+                overflow: hidden;
+                position: relative;
+
+                .d2-container-full-bs__body-wrapper-inner {
+                  padding: 20px;
+                  position: relative;
+                }
+              }
+
+              .d2-container-full-bs__footer {
+                padding: 20px;
+              }
+            }
+
+            // 隐形布局组件
+            .d2-container-ghost {
+              position: absolute;
+              top: 0px;
+              right: 20px;
+              bottom: 0px;
+              left: 0px;
+              display: flex;
+              flex-direction: column;
+              overflow: hidden;
+
+              .d2-container-ghost__header {
+                padding: 20px;
+                border-bottom-left-radius: 4px;
+                border-bottom-right-radius: 4px;
+              }
+
+              .d2-container-ghost__body {
+                flex-grow: 1;
+                overflow: auto;
+                position: relative;
+              }
+
+              .d2-container-ghost__footer {
+                padding: 20px;
+                border-top-left-radius: 4px;
+                border-top-right-radius: 4px;
+              }
+            }
+
+            // 隐形布局组件 - 滚动优化
+            .d2-container-ghost-bs {
+              position: absolute;
+              top: 0px;
+              right: 20px;
+              bottom: 0px;
+              left: 0px;
+              display: flex;
+              flex-direction: column;
+              overflow: hidden;
+
+              .d2-container-ghost-bs__header {
+                padding: 20px;
+                border-bottom-left-radius: 4px;
+                border-bottom-right-radius: 4px;
+              }
+
+              .d2-container-ghost-bs__body {
+                flex-grow: 1;
+                overflow: hidden;
+                position: relative;
+              }
+
+              .d2-container-ghost-bs__footer {
+                padding: 20px;
+                border-top-left-radius: 4px;
+                border-top-right-radius: 4px;
+              }
+            }
+
+            // 卡片式布局组件
+            .d2-container-card {
+              position: absolute;
+              top: 0px;
+              right: 20px;
+              bottom: 0px;
+              left: 0px;
+              display: flex;
+              flex-direction: column;
+              overflow: hidden;
+
+              .d2-container-card__header {
+                padding: 20px;
+              }
+
+              .d2-container-card__body {
+                flex-grow: 1;
+                overflow: auto;
+
+                .d2-container-card__body-card {
+                  position: relative;
+                  margin-bottom: 20px;
+                  padding: 20px;
+                  border-bottom-left-radius: 4px;
+                  border-bottom-right-radius: 4px;
+                }
+              }
+
+              .d2-container-card__footer {
+                padding: 20px;
+                border-top-left-radius: 4px;
+                border-top-right-radius: 4px;
+              }
+            }
+
+            // 卡片式布局组件 - 滚动优化
+            .d2-container-card-bs {
+              position: absolute;
+              top: 0px;
+              right: 20px;
+              bottom: 0px;
+              left: 0px;
+              display: flex;
+              flex-direction: column;
+              overflow: hidden;
+
+              .d2-container-card-bs__header {
+                padding: 20px;
+              }
+
+              .d2-container-card-bs__body {
+                position: relative;
+                flex-grow: 1;
+                overflow: hidden;
+
+                .d2-container-card-bs__body-wrapper-inner {
+                  padding-bottom: 20px;
+                }
+
+                .d2-container-card-bs__body-card {
+                  position: relative;
+                  padding: 20px;
+                  border-bottom-left-radius: 4px;
+                  border-bottom-right-radius: 4px;
+                }
+              }
+
+              .d2-container-card-bs__footer {
+                padding: 20px;
+                border-top-left-radius: 4px;
+                border-top-right-radius: 4px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// table翻页footer样式
+div.jy-flex-center-row {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 0;
+  /* top: 0; */
+  right: 0;
+  margin: auto;
+  box-shadow: 0px -4px 4px 0px #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  div.el-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include backgroundColor(A11);
+    padding: 12px 0;
+    z-index: 100;
+    span {
+      @include color(text);
+    }
+
+    .btn-prev,
+    .btn-next {
+      @include color(text);
+    }
+
+    .el-pager {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      li {
+        @include color(text);
+        min-width: 24px;
+        height: 24px;
+        line-height: 24px;
+        margin-right: 24px;
+        text-align: center;
+        border-radius: 2px;
+        border: 1px solid #d2d4d7;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .active {
+        @include color(bg);
+        @include backgroundColor(assist);
+        border: 1px solid #d60010;
+      }
+    }
+  }
+}
+
+div.jy-default-pagination-footer {
+  width: 100%;
+  padding: 0;
+  display: flex;
+  box-shadow: 0px -4px 4px 0px #f0f0f0;
+  div.el-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include backgroundColor(A11);
+    @include boxShadow(shadow);
+    padding: 12px 0;
+    width: 100%;
+
+    span {
+      @include color(text);
+    }
+
+    .btn-prev,
+    .btn-next {
+      @include color(text);
+    }
+
+    .el-pager {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      li {
+        @include color(text);
+        min-width: 24px;
+        height: 24px;
+        line-height: 24px;
+        margin-right: 24px;
+        text-align: center;
+        border-radius: 2px;
+        border: 1px solid #d2d4d7;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .active {
+        @include color(bg);
+        @include backgroundColor(assist);
+      }
+    }
+  }
+}
+
+div.jy-ui-customer-split-table {
+  width: 100%;
+  padding: 0;
+  div.el-pagination {
+    margin-left: -16px;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 10px 17px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    span {
+      @include color(text);
+    }
+
+    .btn-prev,
+    .btn-next {
+      @include color(text);
+    }
+    .el-pagination__total {
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 12px;
+      flex: 2;
+    }
+
+    .el-pagination__sizes {
+      height: 24px;
+      line-height: 24px;
+      .el-input__inner {
+        height: 24px;
+        line-height: 24px;
+      }
+    }
+
+    .el-pager {
+      li {
+        @include color(text);
+        min-width: 24px;
+        height: 24px;
+        line-height: 24px;
+        margin-right: 24px;
+        text-align: center;
+        border-radius: 2px;
+        border: 1px solid #d2d4d7;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .active {
+        @include color(bg);
+        @include backgroundColor(assist);
+        border: none;
+      }
+    }
+    .el-pagination__jump {
+      padding: 0 8px;
+      display: inline-block;
+      color: rgba(0, 0, 0, 0.6) !important;
+      background: #f7f7fa;
+      .el-input__inner {
+        height: 24px;
+        line-height: 24px;
+      }
+    }
+  }
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.nine {
+  color: rgba(0, 0, 0, 0.9);
+}

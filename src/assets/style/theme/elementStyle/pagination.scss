@@ -1,0 +1,24 @@
+// 分页器
+div.el-pagination {
+    .el-pagination__total, .el-pagination__sizes, .el-pagination__jump {
+      @include color(text);
+      input{
+        @include color(text);
+      }
+    }
+  
+    .el-pager li {
+      @include color(weak);
+      @include borderColor(main);
+  
+      &.active {
+        @include color(bg);
+        @include backgroundColor(assist);
+      }
+    }
+    .el-icon-more, .el-icon-d-arrow-left, .el-icon-d-arrow-right{
+       &::before {
+        line-height: 0;
+      }
+    }
+  }

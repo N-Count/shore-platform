@@ -1,0 +1,55 @@
+// 输入框
+div.el-input {
+    .el-input__inner{
+      border-radius: 2px;
+      @include borderColor(input-border);
+      @include backgroundColor(bg3);
+      @include color(text);
+      // padding: 0px 4px 0px 8px;
+      &:hover, &:focus{
+        @include borderColor(assist);
+        @include color(ipt-text)
+      }
+      &::placeholder{
+        @include color(weak);
+      } 
+    }
+  
+    &.is-disabled {
+      .el-input__inner,.proportion.el-input__inner{
+        border-radius: 2px;
+        @include backgroundColor(A13);
+        @include color(weak);
+        @include borderColor(A16);
+        &:hover,&:focus{
+          @include borderColor(A16);
+          @include color(weak);
+        }
+      }
+    }
+  }
+// 文本框
+div.el-textarea{
+  .el-textarea__inner{
+    @include backgroundColor(bg3);
+    @include borderColor(input-border);
+    @include color(text);
+    &:hover, &:focus{
+      @include borderColor(assist);
+      @include color(ipt-text)
+    }
+    &::placeholder{
+      @include color(weak);
+    } 
+   
+  }
+  .el-input__count{
+    background: rgba(255,255,255, 0);
+    @include color(weak)
+  }
+}
+// div input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+//   background-color: rgb(250, 255, 189);
+//   background-image: none;
+//   color: rgb(0, 0, 0);
+// }

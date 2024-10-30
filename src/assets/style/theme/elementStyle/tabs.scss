@@ -1,0 +1,61 @@
+// 标签页
+div.el-tabs {
+  &--card {
+    .el-tabs__nav-wrap {
+      @include backgroundColor(A2);
+
+      .el-tabs__nav {
+        @include borderColor(db);
+        border-right: none;
+
+        .el-tabs__item {
+          border: none;
+          border-left: 1px solid;
+          @include borderColor(db);
+
+          &.is-top:last-child {
+            border-right: 1px solid;
+            @include borderColor(A1b1);
+          }
+
+          // &.is-active:last-child {
+          //   border-right: none
+          // }
+        }
+
+        .is-active {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  &--top {
+    // 自定义tabs样式
+    &.jgy-tabs {
+      .el-tabs__nav-wrap::after {
+        z-index: 2;
+        height: 1px;
+        @include backgroundColor(split)
+      }
+
+      .el-tabs__nav {
+        &>.el-tabs__item {
+          font-weight: 400;
+          font-size: 16px;
+          @include color(weak);
+        }
+
+        &>.is-active {
+          font-weight: 500;
+          @include color(main);
+        }
+      }
+
+      .el-tabs__header{
+        margin: 0;
+      }
+    }
+
+  }
+}

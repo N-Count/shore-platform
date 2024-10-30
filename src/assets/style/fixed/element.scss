@@ -1,0 +1,168 @@
+$dialogHeight: var(--dialog-height);
+
+// element 样式补丁
+.el-card {
+  &.is-always-shadow {
+    box-shadow: 0 0 8px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5);
+  }
+  &.is-hover-shadow {
+    &:hover {
+      box-shadow: 0 0 8px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5);
+    }
+  }
+}
+
+.el-menu--horizontal {
+  border-bottom: none !important;
+}
+
+.el-tabs__item:focus.is-active.is-focus:not(:active) {
+  box-shadow: none !important;
+}
+
+// dialog
+div.el-dialog {
+  margin: 0px auto 10px;
+  // 操作按钮居中
+  .el-dialog__footer {
+    text-align: center;
+  }
+  // body缩小间距
+  .el-dialog__body {
+    max-height: $dialogHeight;
+    overflow-y: auto;
+    // padding: 8px 40px 20px;
+  }
+}
+
+// table
+div.el-table {
+  // 修改row选中样式
+  .el-table__body tr.current-row>td {
+    background-color: rgb(217, 236, 255) !important;
+  }
+  // 修改表格高度
+  &.el-table--mini td, .el-table--mini th {
+    padding: 0;
+  }
+  .cell {
+    line-height: 16px;
+  }
+  .el-table-column--selection .cell{
+    padding: 0 10px;
+  }
+}
+
+// 气泡确认框
+.el-popover {
+  // 修改title的间距
+  .el-popconfirm__main {
+    margin: 14px 0;
+  }
+}
+
+.el-form {
+  .el-form-item--mini {
+    .el-form-item__label {
+      height: 26px;
+    }
+    .el-form-item__content,
+    .el-input--mini .el-input__inner,
+    .el-range-editor--mini.el-input__inner {
+      height: 26px;
+      line-height: 26px;
+    }
+    .el-input__inner {
+      width: 200px;
+      border-radius: 2px;
+    }
+    .el-range-editor.el-input__inner {
+      padding: 3px 6px;
+    }
+    .w150 {
+      width: 150px;
+      .el-input__inner {
+        width: 150px;
+      }
+    }
+  }
+}
+
+.el-button {
+  &.el-button--mini {
+    padding: 0px 12px;
+  }
+}
+
+.el-tabs {
+  .el-tabs__item {
+    height: 30px;
+    line-height: 30px;
+    @include color(tbc1);
+    @include backgroundColor(tbb1);
+    font-size: 12px;
+    @include backgroundLeftColor(A1b1);
+    padding: 0 12px;
+  }
+  .is-active{
+    @include borderColor(A1b1);
+    @include color(main-text);
+  }
+}
+
+div.el-select {
+  margin-right: 16px;
+  &.is-disabled {
+    .el-input__inner {
+      color: #606266;
+    }
+  }
+}
+table div.el-input{
+  margin-right: 0;
+}
+div.el-input {
+  margin-right: 16px;
+  &.is-disabled {
+    .el-input__inner {
+      color: #606266;
+    }
+  }
+}
+
+div.el-textarea {
+  &.is-disabled {
+    .el-textarea__inner {
+      border-radius: 2px;
+      @include backgroundColor(A13);
+      @include color(weak);
+      @include borderColor(A16);
+    }
+  }
+}
+
+
+// tooltip最大宽度
+.el-tooltip__popper{
+  max-width:400px;
+}
+
+// 按鈕位置樣式調換
+div.el-message-box__btns {
+  display: flex;
+  flex-direction: row-reverse;
+  text-align: center;
+  justify-content: center;
+  button {
+    &:nth-child(1) {
+      margin-left: 10px;
+    }
+    &:last-child{
+      margin-left: 0;
+    }
+  }
+}
+
+.w600{
+  width: 600px !important;
+}

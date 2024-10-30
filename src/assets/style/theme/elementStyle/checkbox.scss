@@ -1,0 +1,75 @@
+// 复选框 使用辅色
+.el-checkbox {
+  @include color(text);
+
+  &__input {
+    .el-checkbox__inner {
+      background-color: transparent;
+      @include borderColor(weak);
+      width: 12px;
+      height: 12px;
+      &::after{
+        @include borderColor(A2);
+        left: 3px;
+        height: 6px;
+        top: 0.5px;
+      }
+    }
+
+    &.is-checked,
+    &.is-indeterminate {
+      .el-checkbox__inner {
+        @include backgroundColor(assist);
+        @include borderColor(assist);
+      }
+    }
+
+    &.is-focus .el-checkbox__inner {
+      @include borderColor(weak);
+    }
+
+    &.is-checked+.el-checkbox__label {
+      @include color(assist);
+    }
+
+    // 禁用且已勾选
+    &.is-disabled.is-checked {
+      &>.el-checkbox__inner {
+        @include backgroundColor(A11);
+        @include borderColor(disbg);
+
+        &::after {
+          @include borderColor(disbg);
+        }
+      }
+
+      &+span.el-checkbox__label {
+        @include color(disbg);
+      }
+    }
+
+    // 禁用且未勾选
+    &.is-disabled {
+      .el-checkbox__inner {
+        @include backgroundColor(A11);
+        @include borderColor(weak);
+      }
+      &:hover{
+        .el-checkbox__inner{
+          @include borderColor(weak);
+          // display: none;
+        }
+      }
+    }
+    &:hover{
+      .el-checkbox__inner{
+        @include borderColor(main);
+      }
+    }
+  }
+}
+
+span.el-checkbox__input.is-indeterminate .el-checkbox__inner::before{
+  @include backgroundColor(A2);
+  top: 4px;
+}

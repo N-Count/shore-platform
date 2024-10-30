@@ -1,0 +1,32 @@
+// Steps 步骤条
+div .el-steps {
+
+  .el-step__icon,
+  .is-text {
+    @include backgroundColor(A2);
+  }
+
+  .is-finish {
+    @include color(main);
+    @include borderColor(main)
+  }
+  .el-step__title{
+   font-size: 14px;
+  }
+
+  .is-process {
+    font-weight: 400;
+    @include color(weak);
+    @include borderColor(weak)
+  }
+
+  .is-wait {
+    @include color(weak);
+    @include borderColor(weak)
+  }
+
+}
+
+.el-step__line {
+  @include rgbaOpt(weak,'background-color',1)
+}

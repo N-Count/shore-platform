@@ -1,0 +1,176 @@
+// 日期样式
+div.el-date-editor {
+  @include backgroundColor(A2);
+  .el-range-input {
+    @include color(text);
+    @include borderColor(input-border);
+    @include backgroundColor(bg3);
+    &:hover,
+    &:focus {
+      @include borderColor(assist);
+    }
+    &::placeholder {
+      @include color(A8);
+      // color: red;
+    }
+  }
+  .el-range-separator{
+    @include color(text)
+  }
+}
+div.el-date-editor.el-input__inner {
+  border-radius: 2px;
+  @include borderColor(input-border);
+  @include backgroundColor(bg3);
+  &:hover,
+  &:focus {
+    @include borderColor(assist);
+  }
+}
+div.el-picker-panel {
+  @include borderColor(input-border);
+  @include backgroundColor(A2);
+  .el-picker-panel__icon-btn {
+    @include color(weak);
+  }
+  .el-date-range-picker__header div {
+    font-size: 14px;
+    @include color(text);
+  }
+  div.el-date-range-picker__header, .el-date-picker__header {
+    .el-picker-panel__icon-btn {
+      @include color(weak);
+    }
+  }
+  .el-date-table tr > th {
+    @include color(text);
+    @include borderColor(input-border);
+  }
+
+  // .el-date-table td.today div > span {
+  //   @include color(main);
+  // }
+  .el-date-table td.disabled div{
+    @include backgroundColor(A13);
+    @include color(A7)
+  }
+
+  // .el-date-table td.in-range div > span {
+  //   @include backgroundColor(dateAssist);
+  // }
+  // el-date-table td.in-range .today {
+  //   color: red;
+  // }
+  table.el-date-table td.available {
+    @include color(text);
+    &:hover {
+      @include color(assist);
+      border-radius: 2px;
+
+      // span{
+      //   border: 1px solid #A08D79;
+      // }
+    }
+  }
+  table.el-date-table tr td.in-range div,
+  table.el-date-table tr td.in-range div:hover {
+    // @include backgroundColor(dateAssist);
+    @include rgbaOpt(main,'background-color',0.1)
+    
+  }
+
+  table.el-date-table td.start-date span,
+  table.el-date-table td.end-date span {
+    @include backgroundColor(assist);
+  }
+
+  .el-range-editor.is-active,
+  div.el-range-editor.is-active:hover {
+    @include borderColor(assist);
+  }
+
+  .el-date-range-picker__content.is-left {
+    @include borderColor(input-border);
+  }
+  .el-picker-panel__body-wrapper {
+    @include backgroundColor(A2);
+    .el-picker-panel__sidebar {
+      @include borderColor(split);
+      @include backgroundColor(A2);
+      .el-picker-panel__shortcut{
+        @include color (A7)
+      }
+    }
+    .el-picker-panel__shortcut {
+      &:hover,
+      &:focus {
+        @include color(assist);
+        border-radius: 2px;
+      }
+    }
+  }
+  .el-date-table td.start-date {
+    div {
+      @include color(A2);
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    span {
+      border-radius: 2px;
+    }
+  }
+  .el-date-table td {
+    span {
+      border-radius: 2px;
+    }
+  }
+  .el-date-table td.end-date div {
+    background: inherit;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .el-date-table td.end-date div,
+  .el-date-table td.start-date div {
+    @include color(A2);
+  }
+  .el-date-table td.next-month,
+  .el-date-table td.prev-month {
+    @include color(weak);
+  }
+}
+div.el-popper {
+  .popper__arrow {
+    @include borderBottomColor(input-border);
+    @include borderTopColor(input-border);
+      &:after {
+        @include borderBottomColor(A2);
+        @include borderTopColor(A2);
+      }
+  }
+}
+// div.el-popper[x-placement^=bottom] .popper__arrow {
+//   @include borderBottomColor(bg-hover);
+// }
+
+// .el-tooltip__popper[x-placement^=bottom] .popper__arrow::after{
+//   @include borderBottomColor(bg-hover);
+// }
+// div.el-tooltip__popper[x-placement^=bottom] .popper__arrow {
+//   @include borderBottomColor(bg-hover);
+// }
+
+// .el-date-editor .el-range-input ::placeholder{
+//   color: red ;
+// }
+div.el-tooltip__popper[x-placement^=top] .popper__arrow:after {
+  @include borderTopColor(A7);
+}
+div.el-tooltip__popper[x-placement^=top] .popper__arrow {
+  @include borderTopColor(A7);
+}
+div.el-tooltip__popper[x-placement^=bottom] .popper__arrow:after {
+  @include borderBottomColor(A7);
+}
+div.el-tooltip__popper[x-placement^=bottom] .popper__arrow {
+  @include borderBottomColor(A7);
+}

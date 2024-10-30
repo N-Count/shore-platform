@@ -1,0 +1,46 @@
+// 气泡确认框
+div.el-popover {
+  // @include backgroundColor(bg-hover);
+  // @include color(text);
+  opacity: 0.9;
+  @include backgroundColor(A7);
+  @include color(A2);
+  padding: 5px 8px;
+  font-size: 12px;
+  border: none;
+  min-width: 0;
+
+  // 修改title的间距
+  .el-popconfirm__main {
+    margin: 14px 0;
+  }
+
+  .popper__arrow {
+    @include borderBottomColor(A7);
+    @include borderTopColor(A7);
+
+    &:after {
+      @include borderBottomColor(A7);
+      @include borderTopColor(A7);
+    }
+  }
+}
+
+// 优选工具 基金公司弹出层处理
+.jy-popover {
+  &.el-popover {
+    border: 1px solid;
+    @include backgroundColor(A2);
+    @include borderColor(input-border);
+
+    .popper__arrow {
+      @include borderBottomColor(input-border);
+      @include borderTopColor(input-border);
+
+      &:after {
+        @include borderBottomColor(A2);
+        @include borderTopColor(A2);
+      }
+    }
+  }
+}

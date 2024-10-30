@@ -1,0 +1,208 @@
+$btn-font-size: 14px;
+$btn-border-radius: 2px;
+
+// button 尺寸公共样式
+@mixin button-pub-size($height, $padding) {
+  height: $height;
+
+  padding: {
+    left: $padding;
+    right: $padding;
+  }
+
+  font-size: $btn-font-size;
+  border-radius: $btn-border-radius;
+}
+
+button.el-button {
+  background-color: transparent;
+  @include rgbaOpt(main, 'border-color', 1);
+  @include button-pub-size(40px, 20px);
+  border-radius: 4px;
+  &--mini {
+    @include button-pub-size(28px, 12px);
+  }
+
+  &--small {
+    @include button-pub-size(32px, 16px);
+  }
+
+  &--medium {
+    @include button-pub-size(40px, 20px);
+  }
+
+  // type = primary
+  &--primary {
+    border: none;
+    @include color(A2);
+    @include backgroundColor(main);
+
+    &:hover,
+    &:focus {
+      @include rgbaOpt(main, 'background-color', 0.85);
+    }
+
+    &.is-loading {
+      @include rgbaOpt(main, 'background-color', 0.5);
+
+      &::before {
+        background-color: transparent;
+      }
+    }
+
+    &.is-disabled {
+      @include rgbaOpt(main, 'background-color', 0.5);
+
+      &:hover,
+      &:focus,
+      &:active {
+        @include color(A2);
+      }
+    }
+
+    &.is-plain {
+      border: 1px solid;
+      @include rgbaOpt(main, 'border-color', 1);
+      @include rgbaOpt(main, 'color', 1);
+      @include rgbaOpt(main, 'background-color', 0.15);
+
+      &:hover,
+      &:focus {
+        @include rgbaOpt(main, 'border-color', 0.85);
+        @include rgbaOpt(main, 'color', 0.85);
+        @include rgbaOpt(main, 'background-color', 0.1);
+      }
+
+      &.is-loading {
+        @include rgbaOpt(main, 'background-color', 0.15);
+        @include rgbaOpt(main, 'color', 0.5);
+        @include rgbaOpt(main, 'border-color', 0.15);
+      }
+
+      &.is-disabled {
+        @include rgbaOpt(main, 'background-color', 0.15);
+        @include rgbaOpt(main, 'border-color', 0.15);
+        @include rgbaOpt(main, 'color', 0.5);
+
+        &:hover,
+        &:focus,
+        &:active {
+          @include rgbaOpt(main, 'background-color', 0.15);
+          @include rgbaOpt(main, 'border-color', 0.15);
+          @include rgbaOpt(main, 'color', 0.5);
+        }
+      }
+    }
+  }
+
+  // type = default
+  &--default {
+    // border: 1px solid #d2d4d7;
+    background: #e9e9eb;
+    border-color: #e9e9eb;
+    color: rgba(0, 0, 0, 0.9);
+    border: none;
+    &:not(.is-plain):not(.el-button--primary):not(.el-button--text) {
+      color: rgba(0, 0, 0, 0.9);
+
+      &:hover,
+      &:focus {
+        color: rgba(0, 0, 0, 0.9);
+        border-color: #d2d4d7;
+        background-color: #d2d4d7;
+      }
+
+      &.is-disabled {
+        @include rgbaOpt(main, 'background-color', 0);
+        @include rgbaOpt(main, 'border-color', 0.5);
+        @include rgbaOpt(main, 'color', 0.5);
+
+        &:hover,
+        &:focus,
+        &:active {
+          @include rgbaOpt(main, 'background-color', 0);
+          @include rgbaOpt(main, 'border-color', 0.5);
+          @include rgbaOpt(main, 'color', 0.5);
+        }
+      }
+
+      &.is-loading {
+        &::before {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  &--text {
+    border: none;
+    height: auto;
+    padding: 4px;
+
+    &:not(.is-plain):not(.el-button--primary) {
+      &:hover,
+      &:focus,
+      &:active {
+        @include rgbaOpt(main, 'background-color', 0.18);
+      }
+
+      &.is-disabled {
+        @include rgbaOpt(main, 'color', 0.5);
+
+        &:hover,
+        &:focus,
+        &:active {
+          @include rgbaOpt(main, 'background-color', 0);
+        }
+      }
+
+      &.is-loading {
+        @include rgbaOpt(main, 'color', 0.5);
+      }
+    }
+  }
+
+  &.jy-clear {
+    @include rgbaOpt(A18, 'color', 1);
+
+    &:not(.is-plain):not(.el-button--primary) {
+      &:hover,
+      &:focus,
+      &:active {
+        @include rgbaOpt(A18, 'color', 1);
+      }
+
+      &.is-disabled {
+        @include rgbaOpt(A18, 'color', 0.5);
+
+        &:hover,
+        &:focus,
+        &:active {
+          @include rgbaOpt(A18, 'background-color', 0);
+        }
+      }
+    }
+  }
+
+  &.jy-cancel {
+    @include rgbaOpt(weak, 'color', 1);
+
+    &:not(.is-plain):not(.el-button--primary) {
+      &:hover,
+      &:focus,
+      &:active {
+        @include rgbaOpt(weak, 'color', 1);
+      }
+
+      &.is-disabled {
+        @include rgbaOpt(weak, 'color', 0.5);
+
+        &:hover,
+        &:focus,
+        &:active {
+          @include rgbaOpt(weak, 'background-color', 0);
+        }
+      }
+    }
+  }
+}

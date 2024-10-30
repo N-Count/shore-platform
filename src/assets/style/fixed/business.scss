@@ -1,0 +1,67 @@
+
+// header
+.d2-container-full__header {
+  // form间距
+  .el-form-item--mini.el-form-item, .el-form-item--small.el-form-item {
+    margin-bottom: 5px;
+  }
+}
+
+// 在table里的单选框隐藏label
+.bus-table-radio {
+  .el-radio__label {
+    display: none;
+  } 
+}
+
+// 选择框
+.el-select-dropdown {
+  // 自定义模板
+  .bus-span-left {
+    float: left;
+  }
+  .bus-span-right {
+    float: right;
+    color: #F56C6C;
+    font-size: 13px;
+  }
+}
+
+// 密码建议文案
+.pwd-tip{
+  color:#b0b0b0;
+  font-size:12px;
+  div{
+    margin-bottom: 3px;
+    vertical-align: middle;
+  }
+  i {
+    font-size: 14px;
+    vertical-align: middle;
+    margin-right: 3px;
+  }
+}
+// 获取验证码
+.forget-pwd{
+  font-size: 12px;
+  color: '#D60010';
+  padding:0 8px;
+  cursor: pointer;
+}
+// 刷新頁面按钮左侧边框
+.forget-pwd::before{
+  content: '|';
+  font-size: 14px;
+  color:#DCDFE6;
+  position: relative;
+  left: -10px;
+}
+
+// 禁止文字被选中
+.not-select{
+  -moz-user-select:none; /*火狐*/
+  -webkit-user-select:none; /*webkit浏览器*/
+  -ms-user-select:none; /*IE10*/
+  -khtml-user-select:none; /*早期浏览器*/
+  user-select:none;
+}

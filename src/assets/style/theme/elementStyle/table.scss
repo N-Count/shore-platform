@@ -1,0 +1,244 @@
+// 表格
+div.el-table {
+  @include backgroundColor(A2);
+  border: none;
+  margin: 21px 0;
+  margin-bottom: 8px;
+
+  // 操作文字按钮
+  button.el-button {
+    height: auto;
+    padding: 4px;
+    font-size: 12px;
+
+    &.el-button--assist.is-plain {
+      background: transparent;
+
+      &:focus,
+      &:active {
+        background: transparent;
+      }
+
+      &:hover {
+        @include color(bg);
+        @include backgroundColor(assist-hover);
+      }
+    }
+
+    &:hover {
+      background: transparent;
+      // @include rgbaOpt(main, "background-color", 0.15);
+    }
+  }
+  th.gutter {
+    @include backgroundColor(th-bg);
+  }
+  // 表头
+  th.is-leaf {
+    @include backgroundColor(th-bg);
+    @include color(th-text);
+    // @include borderColor(td-border);
+    // border-left: 1px solid;
+    // border-right: none;
+    // border-bottom: none;
+    padding: 8px 0;
+    font-size: 12px;
+    border: none;
+    &:first-child {
+      border-left: none;
+    }
+
+    // 两行表头换行
+    div.cell {
+      white-space: pre-line;
+    }
+  }
+
+  // 表格
+  tr.el-table__row {
+    .el-link {
+      font-size: 12px;
+      line-height: 12px;
+      padding: 3px;
+    }
+
+    @include color(text);
+
+    & > td {
+      @include backgroundColor(td-bg);
+      padding: 6px 0;
+      font-size: 12px;
+      @include borderColor(bg);
+      // border: none;
+    }
+
+    &:hover > td,
+    &.hover-row > td {
+      @include backgroundColor(td-hover);
+    }
+
+    // 斑马纹
+    &.el-table__row--striped {
+      & > td {
+        @include backgroundColor(striped);
+      }
+
+      &:hover > td,
+      &.hover-row > td {
+        @include backgroundColor(td-hover);
+      }
+    }
+
+    .cell_week {
+      @include color(weak);
+    }
+  }
+
+  // 表格内边框线隐藏
+  &.el-table--border td {
+    border: none;
+    // border-color: transparent;
+    padding: 12px 0 11px;
+  }
+
+  &::before {
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    content: '';
+    display: none;
+  }
+
+  &::after {
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    content: '';
+    display: none;
+  }
+
+  .el-table__empty-block {
+    @include backgroundColor(striped);
+
+    .el-table__empty-text {
+      font-size: 14px;
+      @include color(text);
+    }
+  }
+
+  // 修改fixed列之后的表格阴影
+
+  // .is-scrolling-none {
+
+  //   // 没有滚动条情况
+  //   &-none {
+
+  //     &.el-table__fixed,
+  //     &.el-table__fixed-right {
+  //       @include boxShadow(shadowTabNone)
+  //     }
+  //   }
+
+  //   // 滚动条在左边
+  //   &-left {
+  //     &.el-table__fixed {
+  //       // @include boxShadow(shadowTableleft)
+  //       box-shadow: 1px 9px 3px 4px red;
+  //     }
+  //   }
+
+  //   // 滚动条在中间
+  //   &-middle {
+  //     &.el-table__fixed {
+  //       @include boxShadow(shadowTableleft)
+  //     }
+
+  //     &.el-table__fixed-right {
+  //       @include boxShadow(shadowTabRigth)
+  //     }
+  //   }
+
+  //   // 滚动条在右边
+  //   &-right {
+  //     &.el-table__fixed-right {
+  //       @include boxShadow(shadowTabRigth)
+  //     }
+  //   }
+  // }
+
+  // }
+  // .is-scrolling-right{
+  //   border: red;
+  //     .el-table__fixed {
+  //   // @include boxShadow(shadowTableleft)
+  //   box-shadow: none !important;
+  // }
+  // }
+  .el-table__body-wrapper.is-scrolling-left ~ .el-table__fixed {
+    box-shadow: none;
+  }
+  // .el-table__body-wrapper .is-scrolling-right~.el-table__fixed-right{
+  // }
+  .el-table__body-wrapper.is-scrolling-right ~ .el-table__fixed-right {
+    box-shadow: none;
+  }
+  .el-table__body-wrapper.is-scrolling-left ~ .el-table__fixed,
+  .el-table__body-wrapper.is-scrolling-none ~ .el-table__fixed,
+  .el-table__body-wrapper.is-scrolling-none ~ .el-table__fixed-right,
+  .el-table__body-wrapper.is-scrolling-right ~ .el-table__fixed-right {
+    box-shadow: none;
+  }
+  .el-table__fixed {
+    @include boxShadow(shadowTableleft);
+  }
+
+  .el-table__fixed-right {
+    @include boxShadow(shadowTabRigth);
+  }
+
+  .el-table__fixed-right::before,
+  .el-table__fixed::before {
+    background-color: inherit;
+  }
+
+  .el-table__fixed-right-patch {
+    @include backgroundColor(th-bg);
+    @include borderColor(th-bg);
+  }
+
+  .el-switch {
+    height: 18px;
+    line-height: 17px;
+    font-size: 12px;
+  }
+}
+
+// 内嵌表格
+div.el-table.innerTable {
+  // 表头
+  th.is-leaf {
+    @include backgroundColor(ith-bg);
+    @include color(text);
+  }
+}
+
+.el-table,
+.el-table__expanded-cell {
+  @include backgroundColor(A2);
+}
+
+.el-date-table,
+.el-table th {
+  @include backgroundColor(A2);
+}
+
+.el-table--border th.gutter:last-of-type {
+  border-bottom-width: 0 !important;
+}
+
+.el-table__header {
+  min-width: 100%;
+}
+.el-table__body {
+  min-width: 100%;
+}

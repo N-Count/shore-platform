@@ -1,0 +1,15 @@
+
+// 上传Excel
+div.el-upload{
+    .el-upload-dragger{
+     @include backgroundColor(A2);
+     @include borderColor(disbg);
+     border: 2px  dashed;
+     border-radius: 8px;
+     width: 500px;
+     height: 260px;
+     .upload-text{
+       @include color(ipt-text);
+     }
+    }
+ }

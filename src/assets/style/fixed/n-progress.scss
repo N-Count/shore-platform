@@ -1,0 +1,14 @@
+// 路由切换进度条样式
+#nprogress {
+  .bar {
+    @include backgroundColor(main,1)
+    // background: red !important;
+  }
+  .peg {
+    // @include boxShadowOpt($blur:10px,$colorKey:main,$important:1);
+  }
+  .spinner-icon{
+    @include rgbaOpt(main,'border-top-color',1,1);
+    @include rgbaOpt(main,'border-left-color',1,1)
+  }
+}

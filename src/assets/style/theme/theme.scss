@@ -1,0 +1,422 @@
+// 每个主题特有的设置
+.theme-#{$theme-name} {
+  .el-card {
+    &.d2-card {
+      border: $theme-container-border-outer;
+      .el-card__header {
+        border-bottom: $theme-container-border-outer;
+      }
+    }
+  }
+
+  // 背景图片和遮罩
+  .d2-layout-header-aside-group {
+    @include backgroundColor(A2);
+    // background-color: $theme-bg-color;
+    .d2-layout-header-aside-mask {
+      background: $theme-bg-mask;
+    }
+  }
+
+  // 菜单项目
+  @mixin theme-menu-hover-style {
+    i.fa {
+      color: $theme-menu-item-color-hover;
+    }
+    background: $theme-menu-item-background-color-hover;
+  }
+  %el-menu-icon {
+    i {
+      display: inline-block;
+      width: 14px;
+      text-align: center;
+      margin-right: 10px;
+    }
+    svg {
+      margin: 0px;
+      height: 14px;
+      width: 14px;
+      margin-right: 5px;
+    }
+  }
+  .el-submenu__title {
+    @extend %unable-select;
+    @extend %el-menu-icon;
+  }
+  .el-menu-item {
+    @extend %unable-select;
+    @extend %el-menu-icon;
+  }
+  .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+    @include theme-menu-hover-style;
+  }
+  
+  // 顶栏
+  .d2-theme-header {
+    // 顶栏菜单空间不足时显示的滚动控件
+    .d2-theme-header-menu {
+      .d2-theme-header-menu__prev, .d2-theme-header-menu__next {
+        color: $theme-header-item-color;
+        background: $theme-header-item-background-color;
+        &:hover {
+          color: $theme-header-item-color-hover;
+          background: $theme-header-item-background-color-hover;
+        }
+      }
+    }
+    // 切换按钮
+    .toggle-aside-btn {
+      i {
+        // color: $theme-header-item-color;
+        // background: $theme-header-item-background-color;
+        &:hover {
+          @include color(main-text);
+        }
+      }
+    }
+    // 顶栏菜单
+    .el-menu {
+      .el-menu-item {
+        transition: border-top-color 0s;
+        i.fa { color: inherit; }
+        &:hover {
+          i.fa { color: inherit; }
+        }
+        &:focus {
+          color: $theme-header-item-color-focus;
+          background: $theme-header-item-background-color-focus;
+          i.fa { color: inherit; }
+        }
+        &.is-active {
+          @include backgroundColor(A15);
+          i.fa { color: inherit; }
+        }
+      }
+      .el-submenu {
+        &.is-active {
+          .el-submenu__title {
+            @include backgroundColor(A15);
+            i.fa { color: inherit; }
+          }
+        }
+        .el-submenu__title {
+          transition: border-top-color 0s;
+          color: #D60010;
+          i.fa { color: inherit; }
+          .el-submenu__icon-arrow {
+            color: $theme-header-item-color;
+          }
+          &:hover {
+            i.fa { color: inherit; }
+            .el-submenu__icon-arrow {
+              color: $theme-header-item-color-hover;
+            }
+          }
+          &:focus {
+            i.fa { color: inherit; }
+            .el-submenu__icon-arrow {
+              color: $theme-header-item-color-focus;
+            }
+          }
+        }
+      }
+    }
+    // 顶栏右侧
+    .d2-header-right {
+      .btn-text {
+        height: auto;
+        &.can-hover {
+          &:hover {
+            background-color: transparent;
+            i{
+               @include color(main);
+            }
+          }
+        }
+      }
+    }
+  }
+  // [布局] 顶栏下面
+  .d2-theme-container {
+    // 侧边栏
+    .d2-theme-container-aside {
+      // 菜单为空的时候显示的信息
+      .d2-layout-header-aside-menu-empty {
+        background: $theme-aside-menu-empty-background-color;
+        i {
+          color: $theme-aside-menu-empty-icon-color;
+        }
+        span {
+          color: $theme-aside-menu-empty-text-color;
+        }
+        &:hover {
+          background: $theme-aside-menu-empty-background-color-hover;
+          i {
+            color: $theme-aside-menu-empty-icon-color-hover;
+          }
+          span {
+            color: $theme-aside-menu-empty-text-color-hover;
+          }
+        }
+      }
+      // [菜单] 正常状态
+      .el-menu {
+        .el-menu-item {
+          margin: 0 8px;
+          i {
+            color: rgba(0,0,0,.4);
+          }
+          &:hover {
+            @include backgroundColor(tbc1-act);
+            i {
+               @include color(tbb1)
+            }
+          }
+          &:focus {
+            i {
+              color: $theme-aside-item-color-focus;
+            }
+          }
+          &.is-active {
+            @include color(tbb1);
+            @include backgroundColor(A7);
+            border-radius: 2px;
+            i {
+              @include color(tbb1)
+            }
+          }
+        }
+        .main-title-item{
+          margin: 0;
+        }
+      }
+      .el-menu--inline{
+        .el-menu-item {
+          font-size: 14px;
+          height: 40px;
+          line-height: 40px;
+          width: 184px;
+          min-width: 184px;
+        }
+      }
+      .el-submenu {
+        .el-submenu__title {
+          height: 56px;
+          line-height: 56px;
+          font-size: 14px;
+          color: #D60010;
+          // margin: 0 8px;
+          i {
+            color: #D60010;
+            margin-right: 10px;
+          }
+          .el-submenu__icon-arrow {
+            color: $theme-aside-item-color;
+          }
+          &:hover {
+            i {
+              @include color(tbb1);
+            }
+            .el-submenu__icon-arrow {
+              @include color(tbb1);
+            }
+          }
+        }
+      }
+    }
+    .d2-theme-container-main {
+      // 主体部分分为多页面控制器 和主体
+      .d2-theme-container-main-header {
+        // 多页面控制器
+        .d2-multiple-page-control {
+          .el-tabs__nav {
+            .el-tabs__item {
+              @extend %unable-select;
+              &:first-child {
+                border-left: none;
+                &:hover {
+                  padding: 0px 12px;
+                }
+                .el-icon-close {
+                  display: none;
+                }
+              }
+              &:nth-child(2){
+                padding-left: 12px;
+              }
+            }
+            .el-tabs__item.is-active {
+              @include color(tbc1-act);
+              @include backgroundColor(tbb1-act);
+              border-bottom: none;
+              padding: 0 12px;
+            }
+          }
+          %el-tabs__nav {
+            font-size: 20px;
+          }
+          .el-tabs__nav-prev {
+            @extend %el-tabs__nav;
+            @include color(A2);
+            height: 100%;
+            display: flex;
+            align-items: center;
+          }
+          .el-tabs__nav-next {
+            @extend %el-tabs__nav;
+            @include color(A2);
+            height: 100%;
+            display: flex;
+            align-items: center;
+          }
+        }
+        // 多页控制器的关闭控制
+        .d2-multiple-page-control-btn {
+          .el-dropdown {
+            .el-button-group {
+              .el-button {
+                @include backgroundColor(H1)
+              }
+            }
+          }
+        }
+      }
+      // 主体
+      .d2-theme-container-main-body {
+        // 布局组件
+        .container-component {
+          // [组件]
+          // d2-container-full 填充型
+          .d2-container-full {
+            border-top: none;
+            border-bottom: none;
+            .d2-container-full__header {
+              border-bottom: $theme-container-border-inner;
+              background: $theme-container-header-footer-background-color;
+            }
+            .d2-container-full__body {
+              @include backgroundColor(A2);
+            }
+            .d2-container-full__footer {
+              border-top: $theme-container-border-inner;
+              background: $theme-container-header-footer-background-color;
+            }
+          }
+          // [组件]
+          // d2-container-full-bs 填充型 滚动优化
+          .d2-container-full-bs {
+            border: $theme-container-border-outer;
+            border-top: none;
+            border-bottom: none;
+            .d2-container-full-bs__header {
+              border-bottom: $theme-container-border-inner;
+              background: $theme-container-header-footer-background-color;
+            }
+            .d2-container-full-bs__body {
+              background: $theme-container-background-color;
+            }
+            .d2-container-full-bs__footer {
+              border-top: $theme-container-border-inner;
+              background: $theme-container-header-footer-background-color;
+            }
+          }
+          // [组件]
+          // d2-container-ghost 隐形布局组件
+          .d2-container-ghost {
+            .d2-container-ghost__header {
+              border-bottom: $theme-container-border-outer;
+              border-left: $theme-container-border-outer;
+              border-right: $theme-container-border-outer;
+              background: $theme-container-header-footer-background-color;
+            }
+            .d2-container-ghost__footer {
+              border-top: $theme-container-border-outer;
+              border-left: $theme-container-border-outer;
+              border-right: $theme-container-border-outer;
+              background: $theme-container-header-footer-background-color;
+            }
+          }
+          // [组件]
+          // d2-container-ghost-bs 隐形布局组件 滚动优化
+          .d2-container-ghost-bs {
+            .d2-container-ghost-bs__header {
+              border-bottom: $theme-container-border-outer;
+              border-left: $theme-container-border-outer;
+              border-right: $theme-container-border-outer;
+              background: $theme-container-header-footer-background-color;
+            }
+            .d2-container-ghost-bs__footer {
+              border-top: $theme-container-border-outer;
+              border-left: $theme-container-border-outer;
+              border-right: $theme-container-border-outer;
+              background: $theme-container-header-footer-background-color;
+            }
+          }
+          // [组件]
+          // d2-container-card 卡片型
+          .d2-container-card {
+            .d2-container-card__header {
+              border-bottom: $theme-container-border-inner;
+              border-left: $theme-container-border-outer;
+              border-right: $theme-container-border-outer;
+              background: $theme-container-header-footer-background-color;
+            }
+            .d2-container-card__body {
+              .d2-container-card__body-card {
+                background: $theme-container-background-color;
+                border-left: $theme-container-border-outer;
+                border-right: $theme-container-border-outer;
+                border-bottom: $theme-container-border-outer;
+              }
+            }
+            .d2-container-card__footer {
+              border-top: $theme-container-border-outer;
+              border-left: $theme-container-border-outer;
+              border-right: $theme-container-border-outer;
+              background: $theme-container-header-footer-background-color;
+            }
+          }
+          // [组件]
+          // d2-container-card-bs 卡片型 滚动优化
+          .d2-container-card-bs {
+            .d2-container-card-bs__header {
+              border-bottom: $theme-container-border-inner;
+              border-left: $theme-container-border-outer;
+              border-right: $theme-container-border-outer;
+              background: $theme-container-header-footer-background-color;
+            }
+            .d2-container-card-bs__body {
+              .d2-container-card-bs__body-card {
+                background: $theme-container-background-color;
+                border-left: $theme-container-border-outer;
+                border-right: $theme-container-border-outer;
+                border-bottom: $theme-container-border-outer;
+              }
+            }
+            .d2-container-card-bs__footer {
+              border-top: $theme-container-border-outer;
+              border-left: $theme-container-border-outer;
+              border-right: $theme-container-border-outer;
+              background: $theme-container-header-footer-background-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// dialog 拖拽宽度变化的边线
+.dialog-sidebar-line { 
+  width: 2px; 
+  opacity: 0;
+  height: 80%; 
+  position: absolute; 
+  right: 0; 
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 1; 
+  cursor: w-resize;
+}
+

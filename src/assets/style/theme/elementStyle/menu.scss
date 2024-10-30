@@ -1,0 +1,41 @@
+div.el-menu--vertical {
+  border-radius: 2px;
+  .el-menu {
+    @include backgroundColor(A2);
+    padding: 8px;
+    .el-menu-item {
+      height: 40px;
+      line-height: 40px;
+      @include color(A7);
+      &:hover {
+        border-radius: 2px;
+        // @include backgroundColor(main);
+        @include rgbaOpt(tbc1-act, 'background-color', 0.08);
+
+        // @include color(A2);
+        @include color(tbc1-act);
+      }
+      // &:focus{
+      //   @include backgroundColor(main);
+      //   @include color(A2);
+      //   // color: red;
+      //   border-radius: 2px;
+      //   >span{
+      //     @include color(tbb1);
+      //   }
+      // }
+      &.is-active {
+        @include backgroundColor(main);
+        @include color(A2);
+        // color: red;
+        border-radius: 2px;
+        > span {
+          @include color(tbb1);
+        }
+      }
+    }
+  }
+  .el-menu--popup {
+    @include boxShadow(showdowMenu);
+  }
+}

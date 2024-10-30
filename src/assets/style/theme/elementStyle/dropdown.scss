@@ -1,0 +1,46 @@
+ul.el-dropdown-menu {
+  @include backgroundColor(A2);
+  @include borderColor(input-border);
+  .el-dropdown-menu__item {
+    font-size: 12px;
+    line-height: 32px;
+    height: 32px;
+    @include color(ipt-text);
+    &.selected,
+    &:hover {
+      @include color(assist);
+      @include backgroundColor(A2h);
+    }
+    &:focus{
+      @include color(assist);
+      @include backgroundColor(A2h);
+    }
+    .el-link {
+      font-size: 12px;
+      line-height: 12px;
+    }
+  }
+  .is-disabled{
+    @include rgbaOpt(ipt-text, "color", 0.5);
+    cursor: not-allowed;
+  }
+  .hover {
+    @include color(assist);
+    @include backgroundColor(A2h);
+  }
+  .el-dropdown__empty {
+    @include color(error);
+  }
+  .popper__arrow {
+    @include borderBottomColor(input-border);
+    @include borderTopColor(input-border);
+    &:after {
+      @include borderBottomColor(A2);
+      @include borderTopColor(A2);
+      /*filter:alpha(opacity=50);
+        -moz-opacity:0.5;
+        -khtml-opacity: 0.5;
+        opacity: 0.5;*/
+    }
+  }
+}

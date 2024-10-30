@@ -1,0 +1,113 @@
+// 弹窗样式
+div.el-dialog {
+    @include backgroundColor(A2);
+    // 标题
+    div.el-dialog__header {
+      font-size: 16px;
+      line-height: 18px;
+      padding: 7px 16px 8px 16px;
+      @include color(text);
+      font-weight: 600;
+      box-sizing: border-box;
+      @include backgroundColor(dialog-title);
+      border-bottom: 1px solid;
+      @include borderBottomColor(db);
+      .el-dialog__title {
+        @include color(text);;
+      }
+      .el-dialog__headerbtn{
+        top: 16px;
+        right: 9px;
+        &:hover{
+          .el-dialog__close{
+            @include color(main-text);
+          }
+        }
+      }
+      border-top-width: 3px;
+      border-top-style: solid;
+      @include borderTopColor(assist);
+    }
+  
+    // 内容
+    .el-dialog__body {
+      padding: 12px 16px;
+      @include color(A7);
+      // 移除max-height限制，在dialog内部通过el-scrollbar控制
+      max-height: 100%;
+      // min-height: 145px;
+      @include backgroundColor(dialog-title);
+      form {
+        // padding: 32px 110px 0;
+        @include backgroundColor(dialog-title);
+        .el-form-item__label {
+          // font-weight: bold;
+          // padding: 6px;
+        }
+      }
+    }
+    .el-dialog__footer{
+      @include backgroundColor(dialog-title);
+      padding: 16px 0 32px 0;
+      // position: absolute;
+      // bottom: 0;
+      // width: 100%;
+      button{
+        &:nth-child(2){
+          margin-left: 32px;
+        }
+      }
+    }
+
+  }
+  
+  .el-dialog__wrapper {
+    text-align: center;
+    white-space: nowrap;
+    overflow: auto;
+    &:after {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+    }
+    div.el-dialog {
+      margin: 30px auto !important;
+      display: inline-block;
+      vertical-align: middle;
+      text-align: left;
+      white-space: normal;
+    }
+  }
+//   div.el-dialog{
+//     display: flex;
+//     flex-direction: column;
+//     // position:absolute;
+//     top:50%;
+//     left:50%;
+//     transform:translate(-50%,-50%);
+//     margin: 0 !important;
+// }
+
+// .el-dialog .el-dialog__body{
+//     flex:1;
+//     overflow: auto;
+// }
+  // div.jgy-medium-dialog{
+  //   .el-dialog{
+  //   max-height: 583px;
+  //   .el-dialog__body{
+  //    height: 439px;
+  //   }
+  //   }
+  // }
+  // div.jgy-small-dialog{
+  //   .el-dialog{
+  //    max-height: 400px;
+  //   }
+  // }
+  // div.jgy-mini-dialog{
+  //   .el-dialog{
+  //     height: 200px;
+  //   }
+  // }

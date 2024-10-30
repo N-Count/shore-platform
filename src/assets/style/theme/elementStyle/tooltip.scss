@@ -1,0 +1,7 @@
+// element tooltip
+div.el-tooltip__popper.is-dark {
+    line-height: 1.5;
+    opacity: 0.9;
+    @include backgroundColor(A7);
+    @include color(A2);
+}

@@ -1,0 +1,193 @@
+// 级联下拉框
+.el-cascader {
+  @include borderColor(input-border);
+
+  &:focus,
+  &:hover,
+  .el-input.is-focus {
+    @include borderColor(assist);
+
+    .el-input__inner {
+      @include borderColor(assist);
+      border-radius: 2px;
+      &:hover,
+      &:focus {
+        @include borderColor(assist);
+      }
+    }
+  }
+  .el-cascader__tags{
+    .el-tag{
+      .el-tag__close{
+        &:hover{
+          @include borderColor(main);
+          @include color(main)
+        }
+      }
+    }
+  }
+
+  .el-tag--info {
+    @include color(ipt-text);
+    @include backgroundColor(th-bg);
+    @include borderColor(th-bg);
+
+    .el-tag__close {
+      margin-top: 2px;
+      border: 1px solid;
+      @include backgroundColor(th-bg);
+      @include borderColor(icon-border);
+    }
+  }
+
+  .el-tag__close.el-icon-close {
+    @include color(icon-border);
+    &:hover {
+      @include rgbaOpt(icon-border, 'background-color', 0);
+    }
+
+    // &::before {
+     
+    // }
+  }
+
+  &-panel {
+    .el-cascader-menu {
+      @include borderColor(input-border);
+      @include rgbaOpt(input-border, 'border-right-color', 1)
+    }
+  }
+
+  .el-input.is-disabled {
+    .el-input__inner {
+      border-radius: 2px;
+      @include backgroundColor(disbg);
+      @include color(weak);
+
+      &:hover,
+      &:focus {
+        @include borderColor(input-border);
+        @include color(weak);
+      }
+    }
+  }
+  .el-cascader__tags .el-tag{
+    display: inline-block;
+  }
+}
+
+// 级联下拉框选项
+div.el-cascader__dropdown {
+  @include backgroundColor(A2);
+  @include borderColor(input-border);
+
+  .el-cascader-node {
+    font-size: 12px;
+    line-height: 32px;
+    height: 32px;
+    @include color(ipt-text);
+    .el-cascader-node__postfix{
+      top:10px;
+    }
+    .icon-wenanjieshi {
+      @include color(A8,1);
+      font-size: 12px ;
+      margin-left: 5px;
+    }
+
+    &.selected,
+    &.in-active-path,
+    &:hover {
+      @include rgbaOpt(main,'background-color',.1);
+      @include color(assist);
+      .icon-wenanjieshi {
+      @include color(assist,1);
+      }
+  
+    }
+
+    &:focus {
+      @include rgbaOpt(main,'background-color',.1);
+    }
+  }
+
+  .el-select-dropdown__item,
+  .el-cascader-node.is-active {
+    @include color(main-text);
+    .icon-wenanjieshi {
+      @include color(assist,1);
+    }
+  }
+
+  .hover {
+    @include color(assist);
+    @include rgbaOpt(main,'background-color',.1);
+    
+  }
+
+  .el-select-dropdown__empty {
+    @include color(error)
+  }
+
+  .popper__arrow {
+    @include borderBottomColor(input-border);
+    @include borderTopColor(input-border);
+    &:after {
+      @include borderBottomColor(A2);
+      @include borderTopColor(A2);
+    }
+  }
+
+  // 模糊搜索的展开面板
+  .el-cascader__suggestion-panel.el-scrollbar,.el-virtual-list {
+    .el-cascader__suggestion-item {
+      font-size: 12px;
+      line-height: 32px;
+      height: 32px;
+      @include color(ipt-text);
+      &:hover {
+        @include color(assist);
+        @include rgbaOpt(main, 'background-color', .1);
+      }
+    }
+    .is-checked{
+      @include color(assist);
+      @include rgbaOpt(main, 'background-color', 0);
+    }
+  }
+
+  ::-webkit-scrollbar{
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track-piece{
+    @include backgroundColor(A2);
+  }
+  ::-webkit-scrollbar-thumb{
+    @include backgroundColor(A2);
+  }
+  .el-cascader-menu:hover{
+    ::-webkit-scrollbar-thumb{
+      @include rgbaOpt(A16,'background-color',0.5);
+      &:hover{
+        @include backgroundColor(A16);
+      }
+    }
+  }
+}
+
+// 只展示子节点的CheckBox 
+div.cascader_hide_checkbox{
+  .el-scrollbar__view.el-cascader-menu__list,
+  .el-cascader-menu__virtual-list{
+    .el-cascader-node[aria-haspopup="true"]{
+      cursor: default;
+      .el-checkbox__inner{
+        display: none;
+      }
+      .el-cascader-node__label{
+        padding-left: 0;
+      }
+    }
+  }
+}
+

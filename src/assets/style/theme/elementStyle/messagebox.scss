@@ -1,0 +1,54 @@
+// MessageBox 弹框
+div.el-message-box{
+  border-radius: 0px;
+  border: none;
+  width: 400px;
+  min-height: 190px;
+  padding-bottom: 0px;
+  @include backgroundColor(A2);
+  .el-message-box__header{
+    border-top: 3px solid;
+    border-bottom: 1px solid;
+    @include borderTopColor(main);
+    @include borderBottomColor(db);
+    padding: 12px 16px 11px;
+    .el-message-box__title{
+      font-size: 16px;
+      line-height: 16px;
+      @include color(A7);
+      // font-size: 16px;
+      font-weight: 700;
+    }
+    .el-message-box__headerbtn{
+      top: 14px;
+      &:hover{
+        @include color(main)
+      }
+    }
+
+  }
+  .el-message-box__content{
+   min-height: 64px;
+  }
+  .el-message-box__content{
+    max-height: 168px;
+    overflow-y: auto;
+    .el-message-box__message{
+      @include color(A7);
+      padding-left:15px;
+      padding-top: 23px;
+      padding-bottom: 30px;
+  
+    }
+  }
+  .el-message-box__btns{
+    padding-bottom: 32px;
+    button:nth-child(2){
+      margin-right: 22px;
+    }
+  }
+  .el-message-box__status,
+   .el-icon-warning{
+     display: none;
+   }
+}

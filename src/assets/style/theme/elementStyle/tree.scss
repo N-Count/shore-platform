@@ -1,0 +1,56 @@
+div.el-tree {
+    background-color: transparent;
+    div.is-expanded{
+        .el-tree-node__content{
+            .el-tree-node__expand-icon{
+               @include color (main);
+            }
+        }
+    }
+    .is-current {
+        background-color: transparent;
+    }
+
+    @include color(text);
+
+    &-node__content:hover {
+        @include rgbaOpt(main, 'background-color', 0.15)
+    }
+
+    &-node:focus {
+        >.el-tree-node__content {
+            @include rgbaOpt(main, 'background-color', 0.15)
+        }
+    }
+
+    &.hideCheckBox {
+        .el-tree-node__content {
+            cursor: default;
+        }
+
+        .el-tree-node {
+            .is-leaf{
+                padding: 0;
+                padding-left: 6px;
+                &::before{
+                    content: '';
+                }
+            }
+            .is-leaf+.el-checkbox {
+                margin-right: 8px;
+
+                .el-checkbox__inner {
+                    display: inline-block;
+                }
+            }
+
+            .el-checkbox {
+                margin-right: 0px;
+
+                .el-checkbox__inner {
+                    display: none;
+                }
+            }
+        }
+    }
+}

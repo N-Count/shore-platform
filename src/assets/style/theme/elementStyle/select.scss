@@ -1,0 +1,129 @@
+// 下拉框,级联下拉框
+div.el-select {
+  @include borderColor(input-border);
+
+  .el-tag--info {
+    @include color(ipt-text);
+    @include backgroundColor(th-bg);
+    @include borderColor(th-bg);
+
+    .el-tag__close {
+      border: 1px solid;
+      @include backgroundColor(th-bg);
+      @include borderColor(icon-border);
+    }
+  }
+  .el-select__tags{
+    .el-tag{
+      .el-tag__close{
+        &:hover{
+          @include borderColor(main);
+          @include color(main)
+        }
+      }
+    }
+  }
+  .el-tag__close {
+    @include color(icon-border);
+    &.el-icon-close::before {
+      // @include color(icon-border);
+    
+    }
+
+  }
+
+  .el-cascader-menu {
+    @include borderColor(input-border);
+  }
+
+  .el-input.is-disabled {
+    .el-input__inner {
+      @include backgroundColor(A13);
+      @include color(weak);
+      @include borderColor(A16);
+      border-radius: 2px;
+
+      &:hover,
+      &:focus {
+        @include borderColor(A16);
+        @include color(weak);
+      }
+    }
+  }
+   .el-input .el-input__prefix{
+     @include color(A8)
+   }
+  .el-select__input {
+    @include color(ipt-text);
+  }
+
+  // 自定义类名 添加搜索icon样式
+  &.jgy-search-icon {
+    .el-input__inner{
+      padding-left: 30px;
+    }
+    .el-select__input{
+      margin-left: 30px;
+    }
+    .el-input::before {
+      position: absolute;
+      top: 0;
+      left: 8px;
+      content: "";
+      background-image: url('~@/../src/assets/images/sousuo-icon.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      height: 100%;
+    }
+  }
+}
+
+input::-ms-clear{display: none;}
+
+// 下拉选项,级联下拉框选项
+div.el-select-dropdown,
+div.el-select-dropdown.is-multiple {
+  @include backgroundColor(A2);
+  @include borderColor(input-border);
+
+  .el-select-dropdown__item {
+    font-size: 12px;
+    line-height: 32px;
+    height: 32px;
+    @include color(ipt-text);
+
+    &.selected {
+      @include color(main-text);
+      @include backgroundColor(A2);
+    }
+
+    &.in-active-path,
+    &:hover {
+      @include color(assist);
+      @include rgbaOpt(main, 'background-color', .1);
+    }
+  }
+
+  .hover {
+    @include color(assist);
+    @include rgbaOpt(main, 'background-color', .1);
+  }
+
+  .el-select-dropdown__empty {
+    @include color(error)
+  }
+
+  .popper__arrow {
+    @include borderBottomColor(input-border);
+    @include borderTopColor(input-border);
+
+    &:after {
+      @include borderBottomColor(A2);
+      @include borderTopColor(A2);
+    }
+  }
+}

@@ -1,0 +1,45 @@
+// form表单
+// .el-form {
+//     // padding: 16px;
+//     .el-form-item{
+//         .el-form-item__content{
+//             .el-form-item__error{
+//                 color: yellow;
+//             }
+//         }
+//     }
+// }
+
+
+
+form.el-form {
+    .el-form-item {
+        .el-form-item__label {
+            @include color(text)
+        }
+
+        .el-form-item__content {
+            .el-form-item__error {
+
+                 padding: 0;
+                &::before {
+                    content: "";
+                    background-image: url('~@/../public/image/jinggao/jingshi.svg');
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+                    width: 14px;
+                    height: 12px;
+                    display: inline-block;
+                    vertical-align: bottom;
+                    // @include color()
+                    // font-size: 12px;
+                    // font-family: "iconfont" !important;
+                    // font-style: normal;
+                    // -webkit-font-smoothing: antialiased;
+                    // -moz-osx-font-smoothing: grayscale;
+                }
+            }
+        }
+    }
+}
