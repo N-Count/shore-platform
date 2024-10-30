@@ -135,24 +135,24 @@ const handleRouteByRole = routeList => {
 }
 
 // 清空缓存
-export const clearUserMenuAndPageListCatch = () => {
-  cacheUserMenuAndPageList.userMenuList = []
-  cacheUserMenuAndPageList.allRouterListByRole = []
-}
+// export const clearUserMenuAndPageListCatch = () => {
+//   cacheUserMenuAndPageList.userMenuList = []
+//   cacheUserMenuAndPageList.allRouterListByRole = []
+// }
 
 // 根据用户角色获取对应的菜单列表和可访问页面列表
 export const getMenuListByUser = (userInfo = {}, reset = false) => {
   allRouterListByRole = []
   // 判断是否有用户信息
-  if (isEmpty(userInfo)) {
-    clearUserMenuAndPageListCatch()
-    return cacheUserMenuAndPageList
-  }
+  // if (isEmpty(userInfo)) {
+  //   clearUserMenuAndPageListCatch()
+  //   return cacheUserMenuAndPageList
+  // }
 
-  // 是否重置缓存数据
-  if (reset) {
-    clearUserMenuAndPageListCatch()
-  }
+  // // 是否重置缓存数据
+  // if (reset) {
+  //   clearUserMenuAndPageListCatch()
+  // }
 
   // 判断是否存在缓存数据
   if (
@@ -161,7 +161,7 @@ export const getMenuListByUser = (userInfo = {}, reset = false) => {
   ) {
     const { roleName = '', orgCode = '' } = userInfo
     // 获取当前用户角色类型
-    const userRoleType = userRoles.find(item => item.role === roleName)?.type || ''
+    const userRoleType = '1'
 
     const processChildTree = (node, parentPath = '') => {
       const menuNode = createMenuItem(node, parentPath, userRoleType, orgCode)

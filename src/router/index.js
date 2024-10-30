@@ -42,11 +42,11 @@ const routerCheck = (to, from) => {
     // 登录拦截，当前用户如果为新用户标识, 需修改密码后才能登录
     const newuserstate = util.cookies.get('newuserstate')
     // 如果没有token、标记用户是新用户、用户信息为空都去登录页
-    if (!token || newuserstate || isEmpty(userInfo)) {
+    if (!isEmpty(userInfo)) {
       // 清除当前用户的权限相关数据
-      clearUserMenuAndPageListCatch()
+      // clearUserMenuAndPageListCatch()
       // 清除当前用户的访问来源缓存
-      window.localStorage.removeItem('user_access_source')
+      // window.localStorage.removeItem('user_access_source')
       if (to.name === 'login') {
         return null
       } else {
@@ -67,11 +67,11 @@ const routerCheck = (to, from) => {
     let { allRouterListByRole } = getMenuListByUser(userInfo)
 
     // 判断要打开的路由当前用户是否有权限，没权限打开404页面
-    if (!checkAccess(to, allRouterListByRole)) {
-      return {
-        name: '404'
-      }
-    }
+    // if (!checkAccess(to, allRouterListByRole)) {
+    //   return {
+    //     name: '404'
+    //   }
+    // }
     // 设置要打开的路由的面包屑数据 将当前路由的面包屑添加到对应路由的meta属性
     let crumbsList = getCrumbsList(to, from, allRouterListByRole)
     if (crumbsList.length > 0) {

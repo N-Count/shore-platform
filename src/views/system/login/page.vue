@@ -471,63 +471,11 @@ export default {
         if (valid) {
           this.loginLoading = true
           // 登录方式 1-账号密码登陆 2-验证码登录
-          this.formLogin.loginMethod = this.loginType === 'account' ? '1' : '2'
-          // todo 传参
-          this.login({
-            ...this.formLogin
-          })
-            .then(
-              res => {
-                this.loginLoading = false
-                // 密码错误次数重置为0
-                this.info.errorCount = 0
-                // 重置获取验证码参数
-                this.phoneValidText = '获取验证码'
-                clearInterval(this.phoneCodeTime)
-                this.getUserRouterInfo(res)
-                // 是否需要重置密码
-                if (res.loginPwdState === '1') {
-                  this.resetPwdVisible = true
-                } else {
-                  // 跳转至首页
-                  this.$router.push({ path: this.defaultPageUrl })
-                }
-              },
-              res => {
-                this.loginLoading = false
-                switch (res.code) {
-                  case '07020010':
-                    this.$message.error(res.msg)
-                    this.info.errorCount = this.util.isEmpty(this.info.errorCount)
-                      ? 1
-                      : this.info.errorCount + 1
-                    break
-                  // 是否强制登录
-                  case '07020020':
-                    this.continueDialogVisible = true
-                    break
-                  // 登录密码连续输入错误3次
-                  case '07020019':
-                  case '07020002':
-                    this.$message.error(res.msg)
-                    this.info.errorCount = 4
-                    this.$store.dispatch('d2admin/user/set', this.info, {
-                      root: true
-                    })
-                    break
-                  default:
-                    this.$message.error(res.msg)
-                    break
-                }
-                this.$store.dispatch('d2admin/user/set', this.info, {
-                  root: true
-                })
-              }
-            )
-            .catch(err => {
-                this.loginLoading = false
-              console.log(err)
-            })
+          this.formLogin.loginMethod = '1'
+          this.loginLoading = false
+          this.getUserRouterInfo({})
+          console.log(2222, this.defaultPageUrl)
+          this.$router.push({ path: this.defaultPageUrl })
           this.$forceUpdate()
         }
       })
