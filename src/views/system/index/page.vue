@@ -24,7 +24,11 @@ export default {
   methods: {
     ...mapActions('d2admin/account', ['login']),
     loginClick() {
-      this.login({})
+      console.log(555, this.util.getRsaCode('1234567'))
+      this.login({
+        username: 'admin',
+        password: this.util.getRsaCode('1234567')
+      })
     }
   }
 }

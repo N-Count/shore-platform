@@ -1,6 +1,8 @@
 import routes from '@/router/routes'
-import { userRoles, visibleMenuConfig } from './authConfig'
-import { cloneDeep, isEmpty } from 'lodash'
+import { visibleMenuConfig } from './authConfig'
+// import { userRoles, visibleMenuConfig } from './authConfig'
+// import { cloneDeep, isEmpty } from 'lodash'
+import { cloneDeep } from 'lodash'
 import store from '@/store/index'
 const { MENUICONOPTION = [], MENU_AUTH_OPTIONS = {} } = window.CONFIG
 // 缓存用户菜单数据和可见页面列表
@@ -159,7 +161,8 @@ export const getMenuListByUser = (userInfo = {}, reset = false) => {
     !cacheUserMenuAndPageList.userMenuList.length &&
     !cacheUserMenuAndPageList.allRouterListByRole.length
   ) {
-    const { roleName = '', orgCode = '' } = userInfo
+    // const { roleName = '', orgCode = '' } = userInfo
+    const { orgCode = '' } = userInfo
     // 获取当前用户角色类型
     const userRoleType = '1'
 

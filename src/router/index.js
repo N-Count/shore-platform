@@ -11,8 +11,8 @@ import { cloneDeep, isEmpty } from 'lodash'
 import {
   getMenuListByUser,
   getCrumbsList,
-  checkAccess,
-  clearUserMenuAndPageListCatch
+  // checkAccess,
+  // clearUserMenuAndPageListCatch
 } from '@/menu/handleMenu'
 
 // 解决路由报错问题 fix vue-router NavigationDuplicated
@@ -38,11 +38,11 @@ const routerCheck = (to, from) => {
     // 当前用户信息
     let userInfo = store.state.d2admin.user.info
     // 这里暂时将cookie里是否存有token作为验证是否登录的条件
-    const token = util.cookies.get('token')
+    // const token = util.cookies.get('token')
     // 登录拦截，当前用户如果为新用户标识, 需修改密码后才能登录
-    const newuserstate = util.cookies.get('newuserstate')
+    // const newuserstate = util.cookies.get('newuserstate')
     // 如果没有token、标记用户是新用户、用户信息为空都去登录页
-    if (!isEmpty(userInfo)) {
+    if (isEmpty(userInfo)) {
       // 清除当前用户的权限相关数据
       // clearUserMenuAndPageListCatch()
       // 清除当前用户的访问来源缓存

@@ -15,9 +15,11 @@
    baseURL = `${window.CONFIG.CLOUD_VUE_APP_API.replace(/\/$/g, '')}`
  } else {
    if (apiEnv) {
-     baseURL = `${baseURL}/${apiEnv}`
+    //  baseURL = `${baseURL}/${apiEnv}`
+     baseURL = `${baseURL}`
    } else {
      baseURL = `${process.env.CLOUD_VUE_APP_API.replace(/\/$/g, '')}`
+    //  baseURL = `${baseURL}`
    }
  }
  console.log(baseURL,'baseURL');

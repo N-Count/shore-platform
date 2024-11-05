@@ -1,8 +1,13 @@
 import request from '@/plugin/axios'
 
-let getBaseUrl = url => '/api/bus-frp-agg-cloud' + url
+// let getBaseUrl = url => '/api/bus-frp-agg-cloud' + url
+let getBaseUrl = url => '' + url
 
 /** *********** 模板 *************/
+
+// 首页-登录获取验证码
+export const logIn = (params, headers = {}) =>
+  request.post(getBaseUrl('/admin/sys/login'), params, { headers })
 
 // 首页-登录获取验证码
 export const sendAuthCode = (params, headers = {}) =>

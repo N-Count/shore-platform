@@ -63,7 +63,8 @@ const dllReference = config => {
 let proxyTable = {}
 // 各个环境地址更新,
 const gateway = {
-  new_dev: 'http://10.106.100.53:30301/frp-gateway',
+  // new_dev: 'http://10.106.100.53:30301/frp-gateway',
+  new_dev: 'http://192.168.8.11:8081',
   new_test: 'http://sp1477.jgy-cloudscape-platform.test.jiyujgt.com/frp-gateway',
 }
 
@@ -125,7 +126,7 @@ module.exports = {
     https: false,
     hotOnly: false,
     // 查阅 https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/cli-service.md#配置代理
-    proxy: proxyTable,
+    proxy: 'http://192.168.8.11:8081',
     before: app => {}
   },
   css: {
