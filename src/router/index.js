@@ -34,7 +34,7 @@ const router = new VueRouter({
 // 路由拦截 权限校验
 const routerCheck = (to, from) => {
   // 验证当前路由所有的匹配中是否需要有登录验证的
-  if (to.matched.some(r => r.meta.auth)) {
+  if (!to.matched.some(r => r.meta.auth)) {
     // 当前用户信息
     let userInfo = store.state.d2admin.user.info
     // 这里暂时将cookie里是否存有token作为验证是否登录的条件

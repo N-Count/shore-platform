@@ -18,8 +18,8 @@
     //  baseURL = `${baseURL}/${apiEnv}`
      baseURL = `${baseURL}`
    } else {
-     baseURL = `${process.env.CLOUD_VUE_APP_API.replace(/\/$/g, '')}`
-    //  baseURL = `${baseURL}`
+    //  baseURL = `${process.env.CLOUD_VUE_APP_API.replace(/\/$/g, '')}`
+     baseURL = `${baseURL}`
    }
  }
  console.log(baseURL,'baseURL');
